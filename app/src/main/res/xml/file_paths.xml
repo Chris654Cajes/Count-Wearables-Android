@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<paths>
+    <!-- Cache directory for camera photos -->
+    <cache-path
+        name="cache_images"
+        path="images/" />
+    
+    <!-- External cache directory -->
+    <external-cache-path
+        name="external_cache_images"
+        path="images/" />
+    
+    <!-- Files directory for app-specific storage -->
+    <files-path
+        name="app_images"
+        path="images/" />
+    
+    <!-- External files directory for camera photos (Pictures) -->
+    <external-files-path
+        name="external_files_images"
+        path="Pictures/" />
+    
+    <!-- External files directory (root) -->
+    <external-files-path
+        name="external_files_root"
+        path="." />
+</paths>
