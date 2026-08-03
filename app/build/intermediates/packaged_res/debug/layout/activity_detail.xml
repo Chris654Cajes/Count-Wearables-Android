@@ -4,23 +4,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background"
+    android:background="@drawable/bg_screen_gradient"
     tools:context=".ui.DetailActivity">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/background">
+        android:background="@android:color/transparent">
 
         <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="@color/background"
+            android:background="@android:color/transparent"
             app:navigationIcon="@android:drawable/ic_menu_revert"
             app:navigationIconTint="@color/primary"
-            app:titleTextColor="@color/primary"
-            tools:title="ITEM_DECRYPTED" />
+            app:titleTextColor="@color/text_gold_accent"
+            tools:title="GEAR DETAILS" />
 
     </com.google.android.material.appbar.AppBarLayout>
 
@@ -30,12 +30,12 @@
         android:orientation="vertical"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-        <!-- Item Image with Neon Border -->
+        <!-- Item Image, gilded frame -->
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
-            android:layout_height="250dp"
+            android:layout_height="240dp"
             android:layout_margin="16dp"
-            app:cardCornerRadius="2dp"
+            app:cardCornerRadius="18dp"
             app:strokeColor="@color/primary"
             app:strokeWidth="2dp"
             app:cardElevation="8dp">
@@ -45,9 +45,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:scaleType="centerCrop"
-                android:src="@android:drawable/ic_menu_gallery"
+                android:src="@drawable/ic_clothing_placeholder"
+                android:padding="24dp"
                 android:background="@color/surface_variant"
-                android:contentDescription="@string/item_name" />
+                android:contentDescription="Clothing Image" />
         </com.google.android.material.card.MaterialCardView>
 
         <ScrollView
@@ -60,35 +61,66 @@
                 android:orientation="vertical"
                 android:padding="16dp">
 
-                <!-- Item Name -->
-                <TextView
-                    android:id="@+id/tvItemName"
+                <!-- Item Name & Favorite -->
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:id="@+id/tvItemName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/text_gold_accent"
+                        android:textSize="26sp"
+                        android:textStyle="bold"
+                        android:layout_alignParentStart="true"
+                        tools:text="Blue Vest" />
+
+                    <ImageButton
+                        android:id="@+id/btnFavorite"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:layout_alignParentEnd="true"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:src="@android:drawable/btn_star_big_off"
+                        app:tint="@color/primary"/>
+                </RelativeLayout>
+
+                <!-- Category & Laundry Status Chips -->
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/text_neon_cyan"
-                    android:textSize="28sp"
-                    android:textStyle="bold"
-                    android:letterSpacing="0.1"
-                    tools:text="NEURAL T-SHIRT" />
+                    android:orientation="horizontal"
+                    android:layout_marginTop="10dp">
 
-                <!-- Category Chip -->
-                <com.google.android.material.chip.Chip
-                    android:id="@+id/chipCategory"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:textColor="@color/black"
-                    app:chipBackgroundColor="@color/primary"
-                    app:shapeAppearanceOverlay="@style/ShapeAppearance.CountWearables.MediumComponent"
-                    tools:text="SECTOR: TOPWEAR" />
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chipCategory"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/text_on_primary"
+                        android:textStyle="bold"
+                        app:chipBackgroundColor="@color/primary"
+                        tools:text="TOPWEAR" />
 
-                <!-- Details Card -->
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chipLaundryStatus"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:textColor="@color/text_on_primary"
+                        android:textStyle="bold"
+                        app:chipBackgroundColor="@color/tertiary"
+                        tools:text="READY" />
+                </LinearLayout>
+
+                <!-- Usage Analytics Card -->
                 <com.google.android.material.card.MaterialCardView
-                    style="@style/Widget.CountWearables.CardView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="24dp"
-                    app:strokeColor="@color/border">
+                    android:layout_marginTop="16dp"
+                    app:cardCornerRadius="16dp"
+                    app:strokeColor="@color/secondary"
+                    app:strokeWidth="1.5dp"
+                    app:cardBackgroundColor="@color/surface">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -99,139 +131,91 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="DATA_LOG"
-                            android:textColor="@color/secondary"
-                            android:textSize="12sp"
-                            android:textStyle="bold"
+                            android:text="USAGE STATS"
+                            android:textAppearance="@style/TextAppearance.CountWearables.SectionHeader"
                             android:layout_marginBottom="12dp" />
 
-                        <!-- Quantity -->
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="horizontal">
-
                             <TextView
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:text="QUANTITY_UNIT"
+                                android:text="TIMES WORN"
                                 android:textColor="@color/text_secondary"
                                 android:textSize="13sp" />
-
                             <TextView
-                                android:id="@+id/tvQuantity"
+                                android:id="@+id/tvWearCount"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:textColor="@color/primary"
-                                android:textSize="14sp"
+                                android:textColor="@color/secondary_light"
                                 android:textStyle="bold"
-                                tools:text="02" />
+                                tools:text="42" />
                         </LinearLayout>
 
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="1dp"
-                            android:background="@color/divider"
-                            android:layout_marginVertical="12dp" />
-
-                        <!-- Size -->
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
                             android:orientation="horizontal">
-
                             <TextView
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:text="DIMENSION_SCALE"
+                                android:text="LAST WORN"
                                 android:textColor="@color/text_secondary"
                                 android:textSize="13sp" />
-
                             <TextView
-                                android:id="@+id/tvSize"
+                                android:id="@+id/tvLastWorn"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:textColor="@color/primary"
-                                android:textSize="14sp"
+                                android:textColor="@color/text_primary"
+                                tools:text="4 days ago" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:orientation="horizontal">
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="COST PER WEAR"
+                                android:textColor="@color/text_secondary"
+                                android:textSize="13sp" />
+                            <TextView
+                                android:id="@+id/tvCostPerWear"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/success"
                                 android:textStyle="bold"
-                                tools:text="M-01" />
+                                tools:text="$2.00" />
                         </LinearLayout>
 
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="1dp"
-                            android:background="@color/divider"
-                            android:layout_marginVertical="12dp" />
-
-                        <!-- Color -->
-                        <LinearLayout
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnMarkWorn"
+                            style="@style/Widget.CountWearables.Button.Secondary"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="horizontal">
-
-                            <TextView
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:text="CHROMA_VALUE"
-                                android:textColor="@color/text_secondary"
-                                android:textSize="13sp" />
-
-                            <TextView
-                                android:id="@+id/tvColor"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:textColor="@color/primary"
-                                android:textSize="14sp"
-                                android:textStyle="bold"
-                                tools:text="NEON_BLUE" />
-                        </LinearLayout>
-
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="1dp"
-                            android:background="@color/divider"
-                            android:layout_marginTop="12dp"
-                            android:layout_marginBottom="12dp" />
-
-                        <!-- Date Added -->
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal">
-
-                            <TextView
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:text="TIMESTAMP_INIT"
-                                android:textColor="@color/text_secondary"
-                                android:textSize="13sp" />
-
-                            <TextView
-                                android:id="@+id/tvDateAdded"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:textColor="@color/primary"
-                                android:textSize="14sp"
-                                tools:text="2024.01.01_00:00" />
-                        </LinearLayout>
-
+                            android:layout_marginTop="16dp"
+                            android:text="MARK AS WORN"
+                            app:icon="@android:drawable/ic_menu_add"
+                            app:iconTint="@color/secondary_light" />
                     </LinearLayout>
                 </com.google.android.material.card.MaterialCardView>
 
-                <!-- Notes Card -->
+                <!-- Data Log Card -->
                 <com.google.android.material.card.MaterialCardView
-                    android:id="@+id/cardNotes"
-                    style="@style/Widget.CountWearables.CardView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
+                    app:cardCornerRadius="16dp"
                     app:strokeColor="@color/border"
-                    android:visibility="gone"
-                    tools:visibility="visible">
+                    app:cardBackgroundColor="@color/surface">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -240,22 +224,72 @@
                         android:padding="16dp">
 
                         <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="ITEM LORE"
+                            android:textAppearance="@style/TextAppearance.CountWearables.SectionHeader"
+                            android:layout_marginBottom="12dp" />
+
+                        <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="METADATA_NOTES"
-                            android:textColor="@color/secondary"
-                            android:textSize="12sp"
-                            android:textStyle="bold" />
+                            android:orientation="horizontal">
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="BRAND"
+                                android:textColor="@color/text_secondary"
+                                android:textSize="13sp" />
+                            <TextView
+                                android:id="@+id/tvBrand"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/primary"
+                                tools:text="Cyber Corp" />
+                        </LinearLayout>
 
-                        <TextView
-                            android:id="@+id/tvNotes"
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="@color/divider" android:layout_marginVertical="8dp"/>
+
+                        <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="8dp"
-                            android:textColor="@color/text_primary"
-                            android:textSize="14sp"
-                            tools:text="Sample metadata notes decrypting..." />
+                            android:orientation="horizontal">
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="SIZE"
+                                android:textColor="@color/text_secondary"
+                                android:textSize="13sp" />
+                            <TextView
+                                android:id="@+id/tvSize"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/primary"
+                                tools:text="L" />
+                        </LinearLayout>
 
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="@color/divider" android:layout_marginVertical="8dp"/>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="SEASON"
+                                android:textColor="@color/text_secondary"
+                                android:textSize="13sp" />
+                            <TextView
+                                android:id="@+id/tvSeason"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/primary"
+                                tools:text="All Season" />
+                        </LinearLayout>
                     </LinearLayout>
                 </com.google.android.material.card.MaterialCardView>
 
@@ -263,7 +297,8 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="32dp"
+                    android:layout_marginTop="28dp"
+                    android:layout_marginBottom="16dp"
                     android:orientation="horizontal">
 
                     <com.google.android.material.button.MaterialButton
@@ -277,13 +312,15 @@
 
                     <com.google.android.material.button.MaterialButton
                         android:id="@+id/btnDelete"
-                        style="@style/Widget.CountWearables.Button.Outlined"
+                        style="@style/Widget.Material3.Button.OutlinedButton"
                         android:layout_width="0dp"
                         android:layout_height="56dp"
                         android:layout_marginStart="8dp"
                         android:layout_weight="1"
-                        android:text="PURGE"
+                        android:text="DISCARD"
+                        app:cornerRadius="14dp"
                         app:strokeColor="@color/error"
+                        app:strokeWidth="1.5dp"
                         android:textColor="@color/error" />
 
                 </LinearLayout>

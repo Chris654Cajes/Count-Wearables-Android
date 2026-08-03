@@ -4,6 +4,7 @@ package com.countwearables.app.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
@@ -22,6 +23,9 @@ import java.lang.String;
 public final class ActivityRegisterBinding implements ViewBinding {
   @NonNull
   private final ConstraintLayout rootView;
+
+  @NonNull
+  public final FrameLayout badgeCrest;
 
   @NonNull
   public final MaterialButton btnRegister;
@@ -60,13 +64,15 @@ public final class ActivityRegisterBinding implements ViewBinding {
   public final TextView textSubtitle;
 
   private ActivityRegisterBinding(@NonNull ConstraintLayout rootView,
-      @NonNull MaterialButton btnRegister, @NonNull TextInputEditText editConfirmPassword,
-      @NonNull TextInputEditText editPassword, @NonNull TextInputEditText editUsername,
-      @NonNull ProgressBar progressBar, @NonNull TextView textAppTitle, @NonNull TextView textError,
+      @NonNull FrameLayout badgeCrest, @NonNull MaterialButton btnRegister,
+      @NonNull TextInputEditText editConfirmPassword, @NonNull TextInputEditText editPassword,
+      @NonNull TextInputEditText editUsername, @NonNull ProgressBar progressBar,
+      @NonNull TextView textAppTitle, @NonNull TextView textError,
       @NonNull TextInputLayout textInputConfirmPassword, @NonNull TextInputLayout textInputPassword,
       @NonNull TextInputLayout textInputUsername, @NonNull TextView textLoginLink,
       @NonNull TextView textSubtitle) {
     this.rootView = rootView;
+    this.badgeCrest = badgeCrest;
     this.btnRegister = btnRegister;
     this.editConfirmPassword = editConfirmPassword;
     this.editPassword = editPassword;
@@ -108,6 +114,12 @@ public final class ActivityRegisterBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
+      id = R.id.badgeCrest;
+      FrameLayout badgeCrest = ViewBindings.findChildViewById(rootView, id);
+      if (badgeCrest == null) {
+        break missingId;
+      }
+
       id = R.id.btnRegister;
       MaterialButton btnRegister = ViewBindings.findChildViewById(rootView, id);
       if (btnRegister == null) {
@@ -180,7 +192,7 @@ public final class ActivityRegisterBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ActivityRegisterBinding((ConstraintLayout) rootView, btnRegister,
+      return new ActivityRegisterBinding((ConstraintLayout) rootView, badgeCrest, btnRegister,
           editConfirmPassword, editPassword, editUsername, progressBar, textAppTitle, textError,
           textInputConfirmPassword, textInputPassword, textInputUsername, textLoginLink,
           textSubtitle);

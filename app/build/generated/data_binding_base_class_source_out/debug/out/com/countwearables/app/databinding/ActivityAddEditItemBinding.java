@@ -8,7 +8,6 @@ import android.widget.AutoCompleteTextView;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ScrollView;
-import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.viewbinding.ViewBinding;
@@ -27,13 +26,13 @@ public final class ActivityAddEditItemBinding implements ViewBinding {
   private final ScrollView rootView;
 
   @NonNull
-  public final MaterialButton btnDelete;
-
-  @NonNull
   public final MaterialButton btnSave;
 
   @NonNull
   public final ImageButton btnTakePhoto;
+
+  @NonNull
+  public final TextInputEditText editBrand;
 
   @NonNull
   public final AutoCompleteTextView editCategory;
@@ -48,7 +47,13 @@ public final class ActivityAddEditItemBinding implements ViewBinding {
   public final TextInputEditText editNotes;
 
   @NonNull
-  public final TextInputEditText editQuantity;
+  public final TextInputEditText editPrice;
+
+  @NonNull
+  public final TextInputEditText editPurchaseDate;
+
+  @NonNull
+  public final AutoCompleteTextView editSeason;
 
   @NonNull
   public final AutoCompleteTextView editSize;
@@ -57,7 +62,7 @@ public final class ActivityAddEditItemBinding implements ViewBinding {
   public final ImageView ivItem;
 
   @NonNull
-  public final TextView textError;
+  public final TextInputLayout textInputBrand;
 
   @NonNull
   public final TextInputLayout textInputCategory;
@@ -72,7 +77,13 @@ public final class ActivityAddEditItemBinding implements ViewBinding {
   public final TextInputLayout textInputNotes;
 
   @NonNull
-  public final TextInputLayout textInputQuantity;
+  public final TextInputLayout textInputPrice;
+
+  @NonNull
+  public final TextInputLayout textInputPurchaseDate;
+
+  @NonNull
+  public final TextInputLayout textInputSeason;
 
   @NonNull
   public final TextInputLayout textInputSize;
@@ -80,33 +91,39 @@ public final class ActivityAddEditItemBinding implements ViewBinding {
   @NonNull
   public final MaterialToolbar toolbar;
 
-  private ActivityAddEditItemBinding(@NonNull ScrollView rootView,
-      @NonNull MaterialButton btnDelete, @NonNull MaterialButton btnSave,
-      @NonNull ImageButton btnTakePhoto, @NonNull AutoCompleteTextView editCategory,
-      @NonNull TextInputEditText editColor, @NonNull TextInputEditText editName,
-      @NonNull TextInputEditText editNotes, @NonNull TextInputEditText editQuantity,
-      @NonNull AutoCompleteTextView editSize, @NonNull ImageView ivItem,
-      @NonNull TextView textError, @NonNull TextInputLayout textInputCategory,
-      @NonNull TextInputLayout textInputColor, @NonNull TextInputLayout textInputName,
-      @NonNull TextInputLayout textInputNotes, @NonNull TextInputLayout textInputQuantity,
-      @NonNull TextInputLayout textInputSize, @NonNull MaterialToolbar toolbar) {
+  private ActivityAddEditItemBinding(@NonNull ScrollView rootView, @NonNull MaterialButton btnSave,
+      @NonNull ImageButton btnTakePhoto, @NonNull TextInputEditText editBrand,
+      @NonNull AutoCompleteTextView editCategory, @NonNull TextInputEditText editColor,
+      @NonNull TextInputEditText editName, @NonNull TextInputEditText editNotes,
+      @NonNull TextInputEditText editPrice, @NonNull TextInputEditText editPurchaseDate,
+      @NonNull AutoCompleteTextView editSeason, @NonNull AutoCompleteTextView editSize,
+      @NonNull ImageView ivItem, @NonNull TextInputLayout textInputBrand,
+      @NonNull TextInputLayout textInputCategory, @NonNull TextInputLayout textInputColor,
+      @NonNull TextInputLayout textInputName, @NonNull TextInputLayout textInputNotes,
+      @NonNull TextInputLayout textInputPrice, @NonNull TextInputLayout textInputPurchaseDate,
+      @NonNull TextInputLayout textInputSeason, @NonNull TextInputLayout textInputSize,
+      @NonNull MaterialToolbar toolbar) {
     this.rootView = rootView;
-    this.btnDelete = btnDelete;
     this.btnSave = btnSave;
     this.btnTakePhoto = btnTakePhoto;
+    this.editBrand = editBrand;
     this.editCategory = editCategory;
     this.editColor = editColor;
     this.editName = editName;
     this.editNotes = editNotes;
-    this.editQuantity = editQuantity;
+    this.editPrice = editPrice;
+    this.editPurchaseDate = editPurchaseDate;
+    this.editSeason = editSeason;
     this.editSize = editSize;
     this.ivItem = ivItem;
-    this.textError = textError;
+    this.textInputBrand = textInputBrand;
     this.textInputCategory = textInputCategory;
     this.textInputColor = textInputColor;
     this.textInputName = textInputName;
     this.textInputNotes = textInputNotes;
-    this.textInputQuantity = textInputQuantity;
+    this.textInputPrice = textInputPrice;
+    this.textInputPurchaseDate = textInputPurchaseDate;
+    this.textInputSeason = textInputSeason;
     this.textInputSize = textInputSize;
     this.toolbar = toolbar;
   }
@@ -138,12 +155,6 @@ public final class ActivityAddEditItemBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      id = R.id.btnDelete;
-      MaterialButton btnDelete = ViewBindings.findChildViewById(rootView, id);
-      if (btnDelete == null) {
-        break missingId;
-      }
-
       id = R.id.btnSave;
       MaterialButton btnSave = ViewBindings.findChildViewById(rootView, id);
       if (btnSave == null) {
@@ -153,6 +164,12 @@ public final class ActivityAddEditItemBinding implements ViewBinding {
       id = R.id.btnTakePhoto;
       ImageButton btnTakePhoto = ViewBindings.findChildViewById(rootView, id);
       if (btnTakePhoto == null) {
+        break missingId;
+      }
+
+      id = R.id.editBrand;
+      TextInputEditText editBrand = ViewBindings.findChildViewById(rootView, id);
+      if (editBrand == null) {
         break missingId;
       }
 
@@ -180,9 +197,21 @@ public final class ActivityAddEditItemBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.editQuantity;
-      TextInputEditText editQuantity = ViewBindings.findChildViewById(rootView, id);
-      if (editQuantity == null) {
+      id = R.id.editPrice;
+      TextInputEditText editPrice = ViewBindings.findChildViewById(rootView, id);
+      if (editPrice == null) {
+        break missingId;
+      }
+
+      id = R.id.editPurchaseDate;
+      TextInputEditText editPurchaseDate = ViewBindings.findChildViewById(rootView, id);
+      if (editPurchaseDate == null) {
+        break missingId;
+      }
+
+      id = R.id.editSeason;
+      AutoCompleteTextView editSeason = ViewBindings.findChildViewById(rootView, id);
+      if (editSeason == null) {
         break missingId;
       }
 
@@ -198,9 +227,9 @@ public final class ActivityAddEditItemBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.textError;
-      TextView textError = ViewBindings.findChildViewById(rootView, id);
-      if (textError == null) {
+      id = R.id.textInputBrand;
+      TextInputLayout textInputBrand = ViewBindings.findChildViewById(rootView, id);
+      if (textInputBrand == null) {
         break missingId;
       }
 
@@ -228,9 +257,21 @@ public final class ActivityAddEditItemBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.textInputQuantity;
-      TextInputLayout textInputQuantity = ViewBindings.findChildViewById(rootView, id);
-      if (textInputQuantity == null) {
+      id = R.id.textInputPrice;
+      TextInputLayout textInputPrice = ViewBindings.findChildViewById(rootView, id);
+      if (textInputPrice == null) {
+        break missingId;
+      }
+
+      id = R.id.textInputPurchaseDate;
+      TextInputLayout textInputPurchaseDate = ViewBindings.findChildViewById(rootView, id);
+      if (textInputPurchaseDate == null) {
+        break missingId;
+      }
+
+      id = R.id.textInputSeason;
+      TextInputLayout textInputSeason = ViewBindings.findChildViewById(rootView, id);
+      if (textInputSeason == null) {
         break missingId;
       }
 
@@ -246,10 +287,11 @@ public final class ActivityAddEditItemBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ActivityAddEditItemBinding((ScrollView) rootView, btnDelete, btnSave, btnTakePhoto,
-          editCategory, editColor, editName, editNotes, editQuantity, editSize, ivItem, textError,
-          textInputCategory, textInputColor, textInputName, textInputNotes, textInputQuantity,
-          textInputSize, toolbar);
+      return new ActivityAddEditItemBinding((ScrollView) rootView, btnSave, btnTakePhoto, editBrand,
+          editCategory, editColor, editName, editNotes, editPrice, editPurchaseDate, editSeason,
+          editSize, ivItem, textInputBrand, textInputCategory, textInputColor, textInputName,
+          textInputNotes, textInputPrice, textInputPurchaseDate, textInputSeason, textInputSize,
+          toolbar);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

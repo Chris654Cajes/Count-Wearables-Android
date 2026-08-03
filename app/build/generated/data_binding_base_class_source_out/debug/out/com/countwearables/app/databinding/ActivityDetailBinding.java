@@ -4,6 +4,7 @@ package com.countwearables.app.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
@@ -14,7 +15,6 @@ import androidx.viewbinding.ViewBindings;
 import com.countwearables.app.R;
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.button.MaterialButton;
-import com.google.android.material.card.MaterialCardView;
 import com.google.android.material.chip.Chip;
 import java.lang.NullPointerException;
 import java.lang.Override;
@@ -31,10 +31,16 @@ public final class ActivityDetailBinding implements ViewBinding {
   public final MaterialButton btnEdit;
 
   @NonNull
-  public final MaterialCardView cardNotes;
+  public final ImageButton btnFavorite;
+
+  @NonNull
+  public final MaterialButton btnMarkWorn;
 
   @NonNull
   public final Chip chipCategory;
+
+  @NonNull
+  public final Chip chipLaundryStatus;
 
   @NonNull
   public final ImageView ivItem;
@@ -43,42 +49,49 @@ public final class ActivityDetailBinding implements ViewBinding {
   public final MaterialToolbar toolbar;
 
   @NonNull
-  public final TextView tvColor;
+  public final TextView tvBrand;
 
   @NonNull
-  public final TextView tvDateAdded;
+  public final TextView tvCostPerWear;
 
   @NonNull
   public final TextView tvItemName;
 
   @NonNull
-  public final TextView tvNotes;
+  public final TextView tvLastWorn;
 
   @NonNull
-  public final TextView tvQuantity;
+  public final TextView tvSeason;
 
   @NonNull
   public final TextView tvSize;
 
+  @NonNull
+  public final TextView tvWearCount;
+
   private ActivityDetailBinding(@NonNull CoordinatorLayout rootView,
       @NonNull MaterialButton btnDelete, @NonNull MaterialButton btnEdit,
-      @NonNull MaterialCardView cardNotes, @NonNull Chip chipCategory, @NonNull ImageView ivItem,
-      @NonNull MaterialToolbar toolbar, @NonNull TextView tvColor, @NonNull TextView tvDateAdded,
-      @NonNull TextView tvItemName, @NonNull TextView tvNotes, @NonNull TextView tvQuantity,
-      @NonNull TextView tvSize) {
+      @NonNull ImageButton btnFavorite, @NonNull MaterialButton btnMarkWorn,
+      @NonNull Chip chipCategory, @NonNull Chip chipLaundryStatus, @NonNull ImageView ivItem,
+      @NonNull MaterialToolbar toolbar, @NonNull TextView tvBrand, @NonNull TextView tvCostPerWear,
+      @NonNull TextView tvItemName, @NonNull TextView tvLastWorn, @NonNull TextView tvSeason,
+      @NonNull TextView tvSize, @NonNull TextView tvWearCount) {
     this.rootView = rootView;
     this.btnDelete = btnDelete;
     this.btnEdit = btnEdit;
-    this.cardNotes = cardNotes;
+    this.btnFavorite = btnFavorite;
+    this.btnMarkWorn = btnMarkWorn;
     this.chipCategory = chipCategory;
+    this.chipLaundryStatus = chipLaundryStatus;
     this.ivItem = ivItem;
     this.toolbar = toolbar;
-    this.tvColor = tvColor;
-    this.tvDateAdded = tvDateAdded;
+    this.tvBrand = tvBrand;
+    this.tvCostPerWear = tvCostPerWear;
     this.tvItemName = tvItemName;
-    this.tvNotes = tvNotes;
-    this.tvQuantity = tvQuantity;
+    this.tvLastWorn = tvLastWorn;
+    this.tvSeason = tvSeason;
     this.tvSize = tvSize;
+    this.tvWearCount = tvWearCount;
   }
 
   @Override
@@ -120,15 +133,27 @@ public final class ActivityDetailBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.cardNotes;
-      MaterialCardView cardNotes = ViewBindings.findChildViewById(rootView, id);
-      if (cardNotes == null) {
+      id = R.id.btnFavorite;
+      ImageButton btnFavorite = ViewBindings.findChildViewById(rootView, id);
+      if (btnFavorite == null) {
+        break missingId;
+      }
+
+      id = R.id.btnMarkWorn;
+      MaterialButton btnMarkWorn = ViewBindings.findChildViewById(rootView, id);
+      if (btnMarkWorn == null) {
         break missingId;
       }
 
       id = R.id.chipCategory;
       Chip chipCategory = ViewBindings.findChildViewById(rootView, id);
       if (chipCategory == null) {
+        break missingId;
+      }
+
+      id = R.id.chipLaundryStatus;
+      Chip chipLaundryStatus = ViewBindings.findChildViewById(rootView, id);
+      if (chipLaundryStatus == null) {
         break missingId;
       }
 
@@ -144,15 +169,15 @@ public final class ActivityDetailBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.tvColor;
-      TextView tvColor = ViewBindings.findChildViewById(rootView, id);
-      if (tvColor == null) {
+      id = R.id.tvBrand;
+      TextView tvBrand = ViewBindings.findChildViewById(rootView, id);
+      if (tvBrand == null) {
         break missingId;
       }
 
-      id = R.id.tvDateAdded;
-      TextView tvDateAdded = ViewBindings.findChildViewById(rootView, id);
-      if (tvDateAdded == null) {
+      id = R.id.tvCostPerWear;
+      TextView tvCostPerWear = ViewBindings.findChildViewById(rootView, id);
+      if (tvCostPerWear == null) {
         break missingId;
       }
 
@@ -162,15 +187,15 @@ public final class ActivityDetailBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.tvNotes;
-      TextView tvNotes = ViewBindings.findChildViewById(rootView, id);
-      if (tvNotes == null) {
+      id = R.id.tvLastWorn;
+      TextView tvLastWorn = ViewBindings.findChildViewById(rootView, id);
+      if (tvLastWorn == null) {
         break missingId;
       }
 
-      id = R.id.tvQuantity;
-      TextView tvQuantity = ViewBindings.findChildViewById(rootView, id);
-      if (tvQuantity == null) {
+      id = R.id.tvSeason;
+      TextView tvSeason = ViewBindings.findChildViewById(rootView, id);
+      if (tvSeason == null) {
         break missingId;
       }
 
@@ -180,9 +205,15 @@ public final class ActivityDetailBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ActivityDetailBinding((CoordinatorLayout) rootView, btnDelete, btnEdit, cardNotes,
-          chipCategory, ivItem, toolbar, tvColor, tvDateAdded, tvItemName, tvNotes, tvQuantity,
-          tvSize);
+      id = R.id.tvWearCount;
+      TextView tvWearCount = ViewBindings.findChildViewById(rootView, id);
+      if (tvWearCount == null) {
+        break missingId;
+      }
+
+      return new ActivityDetailBinding((CoordinatorLayout) rootView, btnDelete, btnEdit,
+          btnFavorite, btnMarkWorn, chipCategory, chipLaundryStatus, ivItem, toolbar, tvBrand,
+          tvCostPerWear, tvItemName, tvLastWorn, tvSeason, tvSize, tvWearCount);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

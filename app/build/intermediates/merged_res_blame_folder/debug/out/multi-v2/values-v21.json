@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.countwearables.app-mergeDebugResources-46:/values-v21/values-v21.xml",
+            "outputFile": "com.countwearables.app-mergeDebugResources-54:/values-v21/values-v21.xml",
             "map": [
                 {
                     "source": "D:\\.gradle\\caches\\transforms-3\\184958b59b0b0fbc0694ac3308e227ed\\transformed\\material-1.11.0\\res\\values-v21\\values-v21.xml",

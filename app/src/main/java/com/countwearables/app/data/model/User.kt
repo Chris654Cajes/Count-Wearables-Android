@@ -1,5 +1,9 @@
 package com.countwearables.app.data.model
 
+import androidx.room.Entity
+import androidx.room.Index
+import androidx.room.PrimaryKey
+
 /**
  * Data class representing a user in the system.
  * This model is used for authentication and to associate clothing items with users.
@@ -8,11 +12,18 @@ package com.countwearables.app.data.model
  * @property username User's username for authentication
  * @property password User's password (stored in plain text for simplicity - 
  *                    in production, use hashing)
+ * @property createdAt Timestamp when the user account was created
  */
+@Entity(
+    tableName = "users",
+    indices = [Index(value = ["username"], unique = true)]
+)
 data class User(
-    val id: Long = 0L,  // 0 means new user, will be assigned by database
+    @PrimaryKey(autoGenerate = true)
+    val id: Long = 0L,
     val username: String,
-    val password: String
+    val password: String,
+    val createdAt: Long = System.currentTimeMillis()
 ) {
     /**
      * Validates if the user data is valid for registration/login.

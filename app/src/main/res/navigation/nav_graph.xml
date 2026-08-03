@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/nav_dashboard">
+
+    <fragment
+        android:id="@+id/nav_dashboard"
+        android:name="com.countwearables.app.ui.DashboardFragment"
+        android:label="Dashboard"
+        tools:layout="@layout/fragment_dashboard" />
+
+    <fragment
+        android:id="@+id/nav_wardrobe"
+        android:name="com.countwearables.app.ui.WardrobeFragment"
+        android:label="Wardrobe"
+        tools:layout="@layout/fragment_wardrobe" />
+
+    <fragment
+        android:id="@+id/nav_outfits"
+        android:name="com.countwearables.app.ui.OutfitListFragment"
+        android:label="Outfits"
+        tools:layout="@layout/fragment_outfit_list" />
+
+    <fragment
+        android:id="@+id/nav_wishlist"
+        android:name="com.countwearables.app.ui.WishlistFragment"
+        android:label="Wishlist"
+        tools:layout="@layout/fragment_wishlist" />
+
+    <fragment
+        android:id="@+id/nav_stats"
+        android:name="com.countwearables.app.ui.StatsFragment"
+        android:label="Stats"
+        tools:layout="@layout/fragment_stats" />
+
+</navigation>

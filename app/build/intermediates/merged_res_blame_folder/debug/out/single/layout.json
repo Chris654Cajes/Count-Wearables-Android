@@ -1,30 +1,102 @@
 [
     {
-        "merged": "com.countwearables.app-mergeDebugResources-47:/layout/activity_detail.xml",
-        "source": "com.countwearables.app-main-50:/layout/activity_detail.xml"
+        "merged": "com.countwearables.app-mergeDebugResources-55:/layout/fragment_outfit_list.xml",
+        "source": "com.countwearables.app-main-58:/layout/fragment_outfit_list.xml"
     },
     {
-        "merged": "D:\\.gradle\\daemon\\8.2\\com.countwearables.app-mergeDebugResources-47:\\layout\\activity_detail.xml",
-        "source": "D:\\.gradle\\daemon\\8.2\\com.countwearables.app-main-50:\\layout\\activity_detail.xml"
+        "merged": "D:\\.gradle\\daemon\\8.2\\com.countwearables.app-mergeDebugResources-55:\\layout\\fragment_outfit_list.xml",
+        "source": "D:\\.gradle\\daemon\\8.2\\com.countwearables.app-main-58:\\layout\\fragment_outfit_list.xml"
     },
     {
-        "merged": "D:\\.gradle\\daemon\\8.2\\com.countwearables.app-mergeDebugResources-47:\\layout\\activity_main.xml",
-        "source": "D:\\.gradle\\daemon\\8.2\\com.countwearables.app-main-50:\\layout\\activity_main.xml"
+        "merged": "D:\\.gradle\\daemon\\8.2\\com.countwearables.app-mergeDebugResources-55:\\layout\\item_clothing.xml",
+        "source": "D:\\.gradle\\daemon\\8.2\\com.countwearables.app-main-58:\\layout\\item_clothing.xml"
     },
     {
-        "merged": "D:\\.gradle\\daemon\\8.2\\com.countwearables.app-mergeDebugResources-47:\\layout\\activity_register.xml",
-        "source": "D:\\.gradle\\daemon\\8.2\\com.countwearables.app-main-50:\\layout\\activity_register.xml"
+        "merged": "com.countwearables.app-mergeDebugResources-55:/layout/fragment_wishlist.xml",
+        "source": "com.countwearables.app-main-58:/layout/fragment_wishlist.xml"
     },
     {
-        "merged": "D:\\.gradle\\daemon\\8.2\\com.countwearables.app-mergeDebugResources-47:\\layout\\activity_login.xml",
-        "source": "D:\\.gradle\\daemon\\8.2\\com.countwearables.app-main-50:\\layout\\activity_login.xml"
+        "merged": "com.countwearables.app-mergeDebugResources-55:/layout/fragment_wardrobe.xml",
+        "source": "com.countwearables.app-main-58:/layout/fragment_wardrobe.xml"
     },
     {
-        "merged": "D:\\.gradle\\daemon\\8.2\\com.countwearables.app-mergeDebugResources-47:\\layout\\item_clothing.xml",
-        "source": "D:\\.gradle\\daemon\\8.2\\com.countwearables.app-main-50:\\layout\\item_clothing.xml"
+        "merged": "com.countwearables.app-mergeDebugResources-55:/layout/item_clothing.xml",
+        "source": "com.countwearables.app-main-58:/layout/item_clothing.xml"
     },
     {
-        "merged": "D:\\.gradle\\daemon\\8.2\\com.countwearables.app-mergeDebugResources-47:\\layout\\activity_add_edit_item.xml",
-        "source": "D:\\.gradle\\daemon\\8.2\\com.countwearables.app-main-50:\\layout\\activity_add_edit_item.xml"
+        "merged": "D:\\.gradle\\daemon\\8.2\\com.countwearables.app-mergeDebugResources-55:\\layout\\activity_register.xml",
+        "source": "D:\\.gradle\\daemon\\8.2\\com.countwearables.app-main-58:\\layout\\activity_register.xml"
+    },
+    {
+        "merged": "D:\\.gradle\\daemon\\8.2\\com.countwearables.app-mergeDebugResources-55:\\layout\\activity_add_edit_item.xml",
+        "source": "D:\\.gradle\\daemon\\8.2\\com.countwearables.app-main-58:\\layout\\activity_add_edit_item.xml"
+    },
+    {
+        "merged": "com.countwearables.app-mergeDebugResources-55:/layout/activity_login.xml",
+        "source": "com.countwearables.app-main-58:/layout/activity_login.xml"
+    },
+    {
+        "merged": "D:\\.gradle\\daemon\\8.2\\com.countwearables.app-mergeDebugResources-55:\\layout\\activity_main.xml",
+        "source": "D:\\.gradle\\daemon\\8.2\\com.countwearables.app-main-58:\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "D:\\.gradle\\daemon\\8.2\\com.countwearables.app-mergeDebugResources-55:\\layout\\fragment_wardrobe.xml",
+        "source": "D:\\.gradle\\daemon\\8.2\\com.countwearables.app-main-58:\\layout\\fragment_wardrobe.xml"
+    },
+    {
+        "merged": "com.countwearables.app-mergeDebugResources-55:/layout/activity_settings.xml",
+        "source": "com.countwearables.app-main-58:/layout/activity_settings.xml"
+    },
+    {
+        "merged": "com.countwearables.app-mergeDebugResources-55:/layout/fragment_stats.xml",
+        "source": "com.countwearables.app-main-58:/layout/fragment_stats.xml"
+    },
+    {
+        "merged": "com.countwearables.app-mergeDebugResources-55:/layout/fragment_dashboard.xml",
+        "source": "com.countwearables.app-main-58:/layout/fragment_dashboard.xml"
+    },
+    {
+        "merged": "com.countwearables.app-mergeDebugResources-55:/layout/activity_register.xml",
+        "source": "com.countwearables.app-main-58:/layout/activity_register.xml"
+    },
+    {
+        "merged": "D:\\.gradle\\daemon\\8.2\\com.countwearables.app-mergeDebugResources-55:\\layout\\fragment_dashboard.xml",
+        "source": "D:\\.gradle\\daemon\\8.2\\com.countwearables.app-main-58:\\layout\\fragment_dashboard.xml"
+    },
+    {
+        "merged": "com.countwearables.app-mergeDebugResources-55:/layout/activity_add_edit_item.xml",
+        "source": "com.countwearables.app-main-58:/layout/activity_add_edit_item.xml"
+    },
+    {
+        "merged": "D:\\.gradle\\daemon\\8.2\\com.countwearables.app-mergeDebugResources-55:\\layout\\activity_login.xml",
+        "source": "D:\\.gradle\\daemon\\8.2\\com.countwearables.app-main-58:\\layout\\activity_login.xml"
+    },
+    {
+        "merged": "com.countwearables.app-mergeDebugResources-55:/layout/item_clothing_small.xml",
+        "source": "com.countwearables.app-main-58:/layout/item_clothing_small.xml"
+    },
+    {
+        "merged": "D:\\.gradle\\daemon\\8.2\\com.countwearables.app-mergeDebugResources-55:\\layout\\fragment_wishlist.xml",
+        "source": "D:\\.gradle\\daemon\\8.2\\com.countwearables.app-main-58:\\layout\\fragment_wishlist.xml"
+    },
+    {
+        "merged": "D:\\.gradle\\daemon\\8.2\\com.countwearables.app-mergeDebugResources-55:\\layout\\activity_settings.xml",
+        "source": "D:\\.gradle\\daemon\\8.2\\com.countwearables.app-main-58:\\layout\\activity_settings.xml"
+    },
+    {
+        "merged": "com.countwearables.app-mergeDebugResources-55:/layout/activity_main.xml",
+        "source": "com.countwearables.app-main-58:/layout/activity_main.xml"
+    },
+    {
+        "merged": "D:\\.gradle\\daemon\\8.2\\com.countwearables.app-mergeDebugResources-55:\\layout\\fragment_stats.xml",
+        "source": "D:\\.gradle\\daemon\\8.2\\com.countwearables.app-main-58:\\layout\\fragment_stats.xml"
+    },
+    {
+        "merged": "D:\\.gradle\\daemon\\8.2\\com.countwearables.app-mergeDebugResources-55:\\layout\\activity_detail.xml",
+        "source": "D:\\.gradle\\daemon\\8.2\\com.countwearables.app-main-58:\\layout\\activity_detail.xml"
+    },
+    {
+        "merged": "com.countwearables.app-mergeDebugResources-55:/layout/activity_detail.xml",
+        "source": "com.countwearables.app-main-58:/layout/activity_detail.xml"
     }
 ]

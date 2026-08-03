@@ -1,66 +1,182 @@
 [
     {
-        "merged": "D:\\.gradle\\daemon\\8.2\\com.countwearables.app-merged_res-48:\\menu_menu_main.xml.flat",
-        "source": "D:\\.gradle\\daemon\\8.2\\com.countwearables.app-main-50:\\menu\\menu_main.xml"
+        "merged": "com.countwearables.app-merged_res-56:/layout_fragment_outfit_list.xml.flat",
+        "source": "com.countwearables.app-main-58:/layout/fragment_outfit_list.xml"
     },
     {
-        "merged": "D:\\.gradle\\daemon\\8.2\\com.countwearables.app-merged_res-48:\\drawable_ic_launcher_foreground.xml.flat",
-        "source": "D:\\.gradle\\daemon\\8.2\\com.countwearables.app-main-50:\\drawable\\ic_launcher_foreground.xml"
+        "merged": "com.countwearables.app-merged_res-56:/layout_item_clothing_small.xml.flat",
+        "source": "com.countwearables.app-main-58:/layout/item_clothing_small.xml"
     },
     {
-        "merged": "D:\\.gradle\\daemon\\8.2\\com.countwearables.app-merged_res-48:\\xml_file_paths.xml.flat",
-        "source": "D:\\.gradle\\daemon\\8.2\\com.countwearables.app-main-50:\\xml\\file_paths.xml"
+        "merged": "D:\\.gradle\\daemon\\8.2\\com.countwearables.app-merged_res-56:\\layout_activity_main.xml.flat",
+        "source": "D:\\.gradle\\daemon\\8.2\\com.countwearables.app-main-58:\\layout\\activity_main.xml"
     },
     {
-        "merged": "com.countwearables.app-merged_res-48:/layout_activity_detail.xml.flat",
-        "source": "com.countwearables.app-main-50:/layout/activity_detail.xml"
+        "merged": "com.countwearables.app-merged_res-56:/drawable_progress_xp_bar.xml.flat",
+        "source": "com.countwearables.app-main-58:/drawable/progress_xp_bar.xml"
     },
     {
-        "merged": "D:\\.gradle\\daemon\\8.2\\com.countwearables.app-merged_res-48:\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
-        "source": "D:\\.gradle\\daemon\\8.2\\com.countwearables.app-main-50:\\mipmap-anydpi-v26\\ic_launcher_round.xml"
+        "merged": "com.countwearables.app-merged_res-56:/layout_fragment_stats.xml.flat",
+        "source": "com.countwearables.app-main-58:/layout/fragment_stats.xml"
     },
     {
-        "merged": "D:\\.gradle\\daemon\\8.2\\com.countwearables.app-merged_res-48:\\mipmap-anydpi-v26_ic_launcher.xml.flat",
-        "source": "D:\\.gradle\\daemon\\8.2\\com.countwearables.app-main-50:\\mipmap-anydpi-v26\\ic_launcher.xml"
+        "merged": "com.countwearables.app-merged_res-56:/drawable_bg_rarity_dot.xml.flat",
+        "source": "com.countwearables.app-main-58:/drawable/bg_rarity_dot.xml"
     },
     {
-        "merged": "D:\\.gradle\\daemon\\8.2\\com.countwearables.app-merged_res-48:\\layout_activity_login.xml.flat",
-        "source": "D:\\.gradle\\daemon\\8.2\\com.countwearables.app-main-50:\\layout\\activity_login.xml"
+        "merged": "D:\\.gradle\\daemon\\8.2\\com.countwearables.app-merged_res-56:\\layout_fragment_outfit_list.xml.flat",
+        "source": "D:\\.gradle\\daemon\\8.2\\com.countwearables.app-main-58:\\layout\\fragment_outfit_list.xml"
     },
     {
-        "merged": "D:\\.gradle\\daemon\\8.2\\com.countwearables.app-merged_res-48:\\drawable_circle_background.xml.flat",
-        "source": "D:\\.gradle\\daemon\\8.2\\com.countwearables.app-main-50:\\drawable\\circle_background.xml"
+        "merged": "D:\\.gradle\\daemon\\8.2\\com.countwearables.app-merged_res-56:\\layout_activity_login.xml.flat",
+        "source": "D:\\.gradle\\daemon\\8.2\\com.countwearables.app-main-58:\\layout\\activity_login.xml"
     },
     {
-        "merged": "D:\\.gradle\\daemon\\8.2\\com.countwearables.app-merged_res-48:\\layout_activity_detail.xml.flat",
-        "source": "D:\\.gradle\\daemon\\8.2\\com.countwearables.app-main-50:\\layout\\activity_detail.xml"
+        "merged": "D:\\.gradle\\daemon\\8.2\\com.countwearables.app-merged_res-56:\\drawable_ic_launcher_foreground.xml.flat",
+        "source": "D:\\.gradle\\daemon\\8.2\\com.countwearables.app-main-58:\\drawable\\ic_launcher_foreground.xml"
     },
     {
-        "merged": "D:\\.gradle\\daemon\\8.2\\com.countwearables.app-merged_res-48:\\layout_activity_main.xml.flat",
-        "source": "D:\\.gradle\\daemon\\8.2\\com.countwearables.app-main-50:\\layout\\activity_main.xml"
+        "merged": "com.countwearables.app-merged_res-56:/drawable_bg_search_pill.xml.flat",
+        "source": "com.countwearables.app-main-58:/drawable/bg_search_pill.xml"
     },
     {
-        "merged": "D:\\.gradle\\daemon\\8.2\\com.countwearables.app-merged_res-48:\\drawable_ic_clothing_placeholder.xml.flat",
-        "source": "D:\\.gradle\\daemon\\8.2\\com.countwearables.app-main-50:\\drawable\\ic_clothing_placeholder.xml"
+        "merged": "com.countwearables.app-merged_res-56:/layout_activity_detail.xml.flat",
+        "source": "com.countwearables.app-main-58:/layout/activity_detail.xml"
     },
     {
-        "merged": "D:\\.gradle\\daemon\\8.2\\com.countwearables.app-merged_res-48:\\drawable_app_icon.png.flat",
-        "source": "D:\\.gradle\\daemon\\8.2\\com.countwearables.app-main-50:\\drawable\\app_icon.png"
+        "merged": "D:\\.gradle\\daemon\\8.2\\com.countwearables.app-merged_res-56:\\menu_menu_main.xml.flat",
+        "source": "D:\\.gradle\\daemon\\8.2\\com.countwearables.app-main-58:\\menu\\menu_main.xml"
     },
     {
-        "merged": "com.countwearables.app-merged_res-48:/drawable_app_icon.png.flat",
-        "source": "com.countwearables.app-main-50:/drawable/app_icon.png"
+        "merged": "D:\\.gradle\\daemon\\8.2\\com.countwearables.app-merged_res-56:\\xml_file_paths.xml.flat",
+        "source": "D:\\.gradle\\daemon\\8.2\\com.countwearables.app-main-58:\\xml\\file_paths.xml"
     },
     {
-        "merged": "D:\\.gradle\\daemon\\8.2\\com.countwearables.app-merged_res-48:\\layout_activity_register.xml.flat",
-        "source": "D:\\.gradle\\daemon\\8.2\\com.countwearables.app-main-50:\\layout\\activity_register.xml"
+        "merged": "D:\\.gradle\\daemon\\8.2\\com.countwearables.app-merged_res-56:\\navigation_nav_graph.xml.flat",
+        "source": "D:\\.gradle\\daemon\\8.2\\com.countwearables.app-main-58:\\navigation\\nav_graph.xml"
     },
     {
-        "merged": "D:\\.gradle\\daemon\\8.2\\com.countwearables.app-merged_res-48:\\layout_activity_add_edit_item.xml.flat",
-        "source": "D:\\.gradle\\daemon\\8.2\\com.countwearables.app-main-50:\\layout\\activity_add_edit_item.xml"
+        "merged": "com.countwearables.app-merged_res-56:/layout_activity_settings.xml.flat",
+        "source": "com.countwearables.app-main-58:/layout/activity_settings.xml"
     },
     {
-        "merged": "D:\\.gradle\\daemon\\8.2\\com.countwearables.app-merged_res-48:\\layout_item_clothing.xml.flat",
-        "source": "D:\\.gradle\\daemon\\8.2\\com.countwearables.app-main-50:\\layout\\item_clothing.xml"
+        "merged": "D:\\.gradle\\daemon\\8.2\\com.countwearables.app-merged_res-56:\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "D:\\.gradle\\daemon\\8.2\\com.countwearables.app-main-58:\\mipmap-anydpi-v26\\ic_launcher_round.xml"
+    },
+    {
+        "merged": "com.countwearables.app-merged_res-56:/drawable_bg_fab_ring.xml.flat",
+        "source": "com.countwearables.app-main-58:/drawable/bg_fab_ring.xml"
+    },
+    {
+        "merged": "com.countwearables.app-merged_res-56:/layout_activity_register.xml.flat",
+        "source": "com.countwearables.app-main-58:/layout/activity_register.xml"
+    },
+    {
+        "merged": "com.countwearables.app-merged_res-56:/layout_activity_login.xml.flat",
+        "source": "com.countwearables.app-main-58:/layout/activity_login.xml"
+    },
+    {
+        "merged": "D:\\.gradle\\daemon\\8.2\\com.countwearables.app-merged_res-56:\\layout_fragment_stats.xml.flat",
+        "source": "D:\\.gradle\\daemon\\8.2\\com.countwearables.app-main-58:\\layout\\fragment_stats.xml"
+    },
+    {
+        "merged": "com.countwearables.app-merged_res-56:/layout_activity_add_edit_item.xml.flat",
+        "source": "com.countwearables.app-main-58:/layout/activity_add_edit_item.xml"
+    },
+    {
+        "merged": "D:\\.gradle\\daemon\\8.2\\com.countwearables.app-merged_res-56:\\layout_fragment_wardrobe.xml.flat",
+        "source": "D:\\.gradle\\daemon\\8.2\\com.countwearables.app-main-58:\\layout\\fragment_wardrobe.xml"
+    },
+    {
+        "merged": "D:\\.gradle\\daemon\\8.2\\com.countwearables.app-merged_res-56:\\mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "D:\\.gradle\\daemon\\8.2\\com.countwearables.app-main-58:\\mipmap-anydpi-v26\\ic_launcher.xml"
+    },
+    {
+        "merged": "com.countwearables.app-merged_res-56:/drawable_bg_hero_panel.xml.flat",
+        "source": "com.countwearables.app-main-58:/drawable/bg_hero_panel.xml"
+    },
+    {
+        "merged": "D:\\.gradle\\daemon\\8.2\\com.countwearables.app-merged_res-56:\\layout_activity_settings.xml.flat",
+        "source": "D:\\.gradle\\daemon\\8.2\\com.countwearables.app-main-58:\\layout\\activity_settings.xml"
+    },
+    {
+        "merged": "com.countwearables.app-merged_res-56:/drawable_bg_stat_chip.xml.flat",
+        "source": "com.countwearables.app-main-58:/drawable/bg_stat_chip.xml"
+    },
+    {
+        "merged": "D:\\.gradle\\daemon\\8.2\\com.countwearables.app-merged_res-56:\\menu_bottom_nav_menu.xml.flat",
+        "source": "D:\\.gradle\\daemon\\8.2\\com.countwearables.app-main-58:\\menu\\bottom_nav_menu.xml"
+    },
+    {
+        "merged": "com.countwearables.app-merged_res-56:/drawable_bg_panel.xml.flat",
+        "source": "com.countwearables.app-main-58:/drawable/bg_panel.xml"
+    },
+    {
+        "merged": "com.countwearables.app-merged_res-56:/layout_item_clothing.xml.flat",
+        "source": "com.countwearables.app-main-58:/layout/item_clothing.xml"
+    },
+    {
+        "merged": "D:\\.gradle\\daemon\\8.2\\com.countwearables.app-merged_res-56:\\layout_activity_detail.xml.flat",
+        "source": "D:\\.gradle\\daemon\\8.2\\com.countwearables.app-main-58:\\layout\\activity_detail.xml"
+    },
+    {
+        "merged": "com.countwearables.app-merged_res-56:/layout_fragment_wishlist.xml.flat",
+        "source": "com.countwearables.app-main-58:/layout/fragment_wishlist.xml"
+    },
+    {
+        "merged": "D:\\.gradle\\daemon\\8.2\\com.countwearables.app-merged_res-56:\\layout_fragment_wishlist.xml.flat",
+        "source": "D:\\.gradle\\daemon\\8.2\\com.countwearables.app-main-58:\\layout\\fragment_wishlist.xml"
+    },
+    {
+        "merged": "D:\\.gradle\\daemon\\8.2\\com.countwearables.app-merged_res-56:\\layout_fragment_dashboard.xml.flat",
+        "source": "D:\\.gradle\\daemon\\8.2\\com.countwearables.app-main-58:\\layout\\fragment_dashboard.xml"
+    },
+    {
+        "merged": "com.countwearables.app-merged_res-56:/drawable_bg_level_badge.xml.flat",
+        "source": "com.countwearables.app-main-58:/drawable/bg_level_badge.xml"
+    },
+    {
+        "merged": "D:\\.gradle\\daemon\\8.2\\com.countwearables.app-merged_res-56:\\layout_item_clothing.xml.flat",
+        "source": "D:\\.gradle\\daemon\\8.2\\com.countwearables.app-main-58:\\layout\\item_clothing.xml"
+    },
+    {
+        "merged": "com.countwearables.app-merged_res-56:/layout_fragment_wardrobe.xml.flat",
+        "source": "com.countwearables.app-main-58:/layout/fragment_wardrobe.xml"
+    },
+    {
+        "merged": "D:\\.gradle\\daemon\\8.2\\com.countwearables.app-merged_res-56:\\drawable_circle_background.xml.flat",
+        "source": "D:\\.gradle\\daemon\\8.2\\com.countwearables.app-main-58:\\drawable\\circle_background.xml"
+    },
+    {
+        "merged": "D:\\.gradle\\daemon\\8.2\\com.countwearables.app-merged_res-56:\\drawable_app_icon.png.flat",
+        "source": "D:\\.gradle\\daemon\\8.2\\com.countwearables.app-main-58:\\drawable\\app_icon.png"
+    },
+    {
+        "merged": "com.countwearables.app-merged_res-56:/drawable_bg_screen_gradient.xml.flat",
+        "source": "com.countwearables.app-main-58:/drawable/bg_screen_gradient.xml"
+    },
+    {
+        "merged": "D:\\.gradle\\daemon\\8.2\\com.countwearables.app-merged_res-56:\\drawable_ic_clothing_placeholder.xml.flat",
+        "source": "D:\\.gradle\\daemon\\8.2\\com.countwearables.app-main-58:\\drawable\\ic_clothing_placeholder.xml"
+    },
+    {
+        "merged": "com.countwearables.app-merged_res-56:/layout_activity_main.xml.flat",
+        "source": "com.countwearables.app-main-58:/layout/activity_main.xml"
+    },
+    {
+        "merged": "D:\\.gradle\\daemon\\8.2\\com.countwearables.app-merged_res-56:\\layout_activity_add_edit_item.xml.flat",
+        "source": "D:\\.gradle\\daemon\\8.2\\com.countwearables.app-main-58:\\layout\\activity_add_edit_item.xml"
+    },
+    {
+        "merged": "com.countwearables.app-merged_res-56:/drawable_bg_panel_inset.xml.flat",
+        "source": "com.countwearables.app-main-58:/drawable/bg_panel_inset.xml"
+    },
+    {
+        "merged": "com.countwearables.app-merged_res-56:/layout_fragment_dashboard.xml.flat",
+        "source": "com.countwearables.app-main-58:/layout/fragment_dashboard.xml"
+    },
+    {
+        "merged": "D:\\.gradle\\daemon\\8.2\\com.countwearables.app-merged_res-56:\\layout_activity_register.xml.flat",
+        "source": "D:\\.gradle\\daemon\\8.2\\com.countwearables.app-main-58:\\layout\\activity_register.xml"
     }
 ]

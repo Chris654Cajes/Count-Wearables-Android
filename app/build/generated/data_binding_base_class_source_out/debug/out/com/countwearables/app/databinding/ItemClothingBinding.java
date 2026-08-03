@@ -21,6 +21,9 @@ public final class ItemClothingBinding implements ViewBinding {
   private final MaterialCardView rootView;
 
   @NonNull
+  public final MaterialCardView cardItem;
+
+  @NonNull
   public final ImageView ivItem;
 
   @NonNull
@@ -38,16 +41,22 @@ public final class ItemClothingBinding implements ViewBinding {
   @NonNull
   public final TextView tvSize;
 
-  private ItemClothingBinding(@NonNull MaterialCardView rootView, @NonNull ImageView ivItem,
-      @NonNull TextView tvCategory, @NonNull TextView tvColor, @NonNull TextView tvItemName,
-      @NonNull TextView tvQuantity, @NonNull TextView tvSize) {
+  @NonNull
+  public final View viewRarityDot;
+
+  private ItemClothingBinding(@NonNull MaterialCardView rootView,
+      @NonNull MaterialCardView cardItem, @NonNull ImageView ivItem, @NonNull TextView tvCategory,
+      @NonNull TextView tvColor, @NonNull TextView tvItemName, @NonNull TextView tvQuantity,
+      @NonNull TextView tvSize, @NonNull View viewRarityDot) {
     this.rootView = rootView;
+    this.cardItem = cardItem;
     this.ivItem = ivItem;
     this.tvCategory = tvCategory;
     this.tvColor = tvColor;
     this.tvItemName = tvItemName;
     this.tvQuantity = tvQuantity;
     this.tvSize = tvSize;
+    this.viewRarityDot = viewRarityDot;
   }
 
   @Override
@@ -77,6 +86,8 @@ public final class ItemClothingBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
+      MaterialCardView cardItem = (MaterialCardView) rootView;
+
       id = R.id.ivItem;
       ImageView ivItem = ViewBindings.findChildViewById(rootView, id);
       if (ivItem == null) {
@@ -113,8 +124,14 @@ public final class ItemClothingBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ItemClothingBinding((MaterialCardView) rootView, ivItem, tvCategory, tvColor,
-          tvItemName, tvQuantity, tvSize);
+      id = R.id.viewRarityDot;
+      View viewRarityDot = ViewBindings.findChildViewById(rootView, id);
+      if (viewRarityDot == null) {
+        break missingId;
+      }
+
+      return new ItemClothingBinding((MaterialCardView) rootView, cardItem, ivItem, tvCategory,
+          tvColor, tvItemName, tvQuantity, tvSize, viewRarityDot);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

@@ -5,12 +5,15 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.countwearables.app.R
 import com.countwearables.app.data.model.ClothingItem
+import com.countwearables.app.ui.util.CategoryStyle
+import com.google.android.material.card.MaterialCardView
 import java.io.File
 
 /**
@@ -32,16 +35,23 @@ class ClothingAdapter(
     }
 
     inner class ClothingViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        private val cardItem: MaterialCardView = itemView.findViewById(R.id.cardItem)
         private val ivItem: ImageView = itemView.findViewById(R.id.ivItem)
         private val tvItemName: TextView = itemView.findViewById(R.id.tvItemName)
         private val tvCategory: TextView = itemView.findViewById(R.id.tvCategory)
+        private val viewRarityDot: View = itemView.findViewById(R.id.viewRarityDot)
         private val tvSize: TextView = itemView.findViewById(R.id.tvSize)
         private val tvColor: TextView = itemView.findViewById(R.id.tvColor)
         private val tvQuantity: TextView = itemView.findViewById(R.id.tvQuantity)
 
         fun bind(item: ClothingItem) {
             tvItemName.text = item.name
-            tvCategory.text = item.category
+            tvCategory.text = item.category.uppercase()
+
+            // Color the "gear slot" tag & card border by category, like item rarity
+            val gearColor = ContextCompat.getColor(itemView.context, CategoryStyle.colorRes(item.category))
+            cardItem.strokeColor = gearColor
+            viewRarityDot.backgroundTintList = android.content.res.ColorStateList.valueOf(gearColor)
             
             // Display size if available
             tvSize.text = if (item.size.isNotEmpty()) {

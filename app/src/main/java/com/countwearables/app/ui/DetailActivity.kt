@@ -7,22 +7,18 @@ import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import com.bumptech.glide.Glide
 import com.countwearables.app.R
 import com.countwearables.app.data.model.ClothingItem
 import com.countwearables.app.databinding.ActivityDetailBinding
-import com.countwearables.app.ui.viewmodel.AuthViewModel
+import com.countwearables.app.ui.util.CategoryStyle
 import com.countwearables.app.ui.viewmodel.ClothingViewModel
 import java.io.File
 
-/**
- * Detail Activity - Displays detailed information about a clothing item.
- * Allows users to edit or delete the item.
- */
 class DetailActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityDetailBinding
-    private val authViewModel: AuthViewModel by viewModels()
     private val clothingViewModel: ClothingViewModel by viewModels()
 
     private var currentItem: ClothingItem? = null
@@ -41,16 +37,13 @@ class DetailActivity : AppCompatActivity() {
 
         val itemId = intent.getLongExtra(EXTRA_ITEM_ID, -1)
         if (itemId == -1L) {
-            Toast.makeText(this, "Item not found", Toast.LENGTH_SHORT).show()
             finish()
             return
         }
 
+        clothingViewModel.setItemId(itemId)
         setupObservers()
         setupClickListeners()
-
-        // Load item details
-        clothingViewModel.getItemById(itemId)
     }
 
     private fun setupObservers() {
@@ -61,16 +54,10 @@ class DetailActivity : AppCompatActivity() {
             }
         }
 
-        clothingViewModel.isLoading.observe(this) { isLoading ->
-            // Could show a loading indicator
-        }
-
         clothingViewModel.deleteResult.observe(this) { result ->
             result.onSuccess {
                 Toast.makeText(this, R.string.item_deleted, Toast.LENGTH_SHORT).show()
                 finish()
-            }.onFailure {
-                Toast.makeText(this, "Failed to delete item", Toast.LENGTH_SHORT).show()
             }
         }
     }
@@ -87,21 +74,37 @@ class DetailActivity : AppCompatActivity() {
         binding.btnDelete.setOnClickListener {
             showDeleteConfirmation()
         }
+
+        binding.btnMarkWorn.setOnClickListener {
+            currentItem?.let { clothingViewModel.markAsWorn(it.id) }
+        }
+
+        binding.btnFavorite.setOnClickListener {
+            currentItem?.let { clothingViewModel.toggleFavorite(it.id) }
+        }
+
+        binding.chipLaundryStatus.setOnClickListener {
+            showLaundryStatusDialog()
+        }
     }
 
     private fun displayItemDetails(item: ClothingItem) {
         binding.tvItemName.text = item.name
         binding.chipCategory.text = item.category
-        binding.tvQuantity.text = item.quantity.toString()
-        binding.tvColor.text = item.color.ifEmpty { "N/A" }
+        binding.chipCategory.setChipBackgroundColorResource(CategoryStyle.colorRes(item.category))
         binding.tvSize.text = item.size.ifEmpty { "N/A" }
-        binding.tvDateAdded.text = item.getFormattedDate()
-        binding.tvNotes.text = item.notes.ifEmpty { "No notes" }
+        binding.tvBrand.text = item.brand.ifEmpty { "Unbranded" }
+        binding.tvSeason.text = item.season
+        
+        binding.tvWearCount.text = item.wearCount.toString()
+        binding.tvLastWorn.text = item.getFormattedLastWornDate()
+        binding.tvCostPerWear.text = String.format("$%.2f", item.getCostPerWear())
 
-        // Show/hide notes card
-        binding.cardNotes.visibility = if (item.notes.isNotEmpty()) View.VISIBLE else View.GONE
+        binding.chipLaundryStatus.text = item.laundryStatus
+        
+        val favIcon = if (item.isFavorite) android.R.drawable.btn_star_big_on else android.R.drawable.btn_star_big_off
+        binding.btnFavorite.setImageResource(favIcon)
 
-        // Load image
         if (item.imagePath.isNotEmpty()) {
             val imageFile = File(item.imagePath)
             if (imageFile.exists()) {
@@ -109,14 +112,19 @@ class DetailActivity : AppCompatActivity() {
                     .load(imageFile)
                     .centerCrop()
                     .placeholder(R.drawable.ic_clothing_placeholder)
-                    .error(R.drawable.ic_clothing_placeholder)
                     .into(binding.ivItem)
-            } else {
-                binding.ivItem.setImageResource(R.drawable.ic_clothing_placeholder)
             }
-        } else {
-            binding.ivItem.setImageResource(R.drawable.ic_clothing_placeholder)
         }
+    }
+
+    private fun showLaundryStatusDialog() {
+        val statuses = ClothingItem.ALL_LAUNDRY_STATUSES.toTypedArray()
+        AlertDialog.Builder(this)
+            .setTitle("Update Laundry Status")
+            .setItems(statuses) { _, which ->
+                currentItem?.let { clothingViewModel.updateLaundryStatus(it.id, statuses[which]) }
+            }
+            .show()
     }
 
     private fun showDeleteConfirmation() {
@@ -124,21 +132,9 @@ class DetailActivity : AppCompatActivity() {
             .setTitle(R.string.confirm_delete)
             .setMessage(R.string.delete_confirmation)
             .setPositiveButton(R.string.yes) { _, _ ->
-                currentItem?.let { item ->
-                    val userId = authViewModel.getCurrentUserId()
-                    clothingViewModel.deleteItem(item.id, userId)
-                }
+                currentItem?.let { clothingViewModel.deleteItem(it) }
             }
             .setNegativeButton(R.string.no, null)
             .show()
-    }
-
-    override fun onResume() {
-        super.onResume()
-        // Reload item details in case they were modified
-        val itemId = intent.getLongExtra(EXTRA_ITEM_ID, -1)
-        if (itemId != -1L) {
-            clothingViewModel.getItemById(itemId)
-        }
     }
 }

@@ -4,75 +4,49 @@ package com.countwearables.app.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
-import android.widget.ImageButton;
-import android.widget.LinearLayout;
-import android.widget.TextView;
+import android.widget.ProgressBar;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.coordinatorlayout.widget.CoordinatorLayout;
-import androidx.recyclerview.widget.RecyclerView;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
 import com.countwearables.app.R;
+import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.appbar.MaterialToolbar;
-import com.google.android.material.button.MaterialButton;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import java.lang.NullPointerException;
 import java.lang.Override;
 import java.lang.String;
 
 public final class ActivityMainBinding implements ViewBinding {
   @NonNull
-  private final CoordinatorLayout rootView;
+  private final ConstraintLayout rootView;
 
   @NonNull
-  public final ImageButton btnFilter;
+  public final AppBarLayout appBarLayout;
 
   @NonNull
-  public final MaterialButton btnLogout;
-
-  @NonNull
-  public final EditText editSearch;
-
-  @NonNull
-  public final LinearLayout emptyState;
-
-  @NonNull
-  public final FloatingActionButton fabAddItem;
-
-  @NonNull
-  public final RecyclerView recyclerView;
+  public final BottomNavigationView bottomNavigation;
 
   @NonNull
   public final MaterialToolbar toolbar;
 
   @NonNull
-  public final TextView tvItemCount;
+  public final ProgressBar xpBar;
 
-  @NonNull
-  public final TextView tvTotalQuantity;
-
-  private ActivityMainBinding(@NonNull CoordinatorLayout rootView, @NonNull ImageButton btnFilter,
-      @NonNull MaterialButton btnLogout, @NonNull EditText editSearch,
-      @NonNull LinearLayout emptyState, @NonNull FloatingActionButton fabAddItem,
-      @NonNull RecyclerView recyclerView, @NonNull MaterialToolbar toolbar,
-      @NonNull TextView tvItemCount, @NonNull TextView tvTotalQuantity) {
+  private ActivityMainBinding(@NonNull ConstraintLayout rootView,
+      @NonNull AppBarLayout appBarLayout, @NonNull BottomNavigationView bottomNavigation,
+      @NonNull MaterialToolbar toolbar, @NonNull ProgressBar xpBar) {
     this.rootView = rootView;
-    this.btnFilter = btnFilter;
-    this.btnLogout = btnLogout;
-    this.editSearch = editSearch;
-    this.emptyState = emptyState;
-    this.fabAddItem = fabAddItem;
-    this.recyclerView = recyclerView;
+    this.appBarLayout = appBarLayout;
+    this.bottomNavigation = bottomNavigation;
     this.toolbar = toolbar;
-    this.tvItemCount = tvItemCount;
-    this.tvTotalQuantity = tvTotalQuantity;
+    this.xpBar = xpBar;
   }
 
   @Override
   @NonNull
-  public CoordinatorLayout getRoot() {
+  public ConstraintLayout getRoot() {
     return rootView;
   }
 
@@ -97,39 +71,15 @@ public final class ActivityMainBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      id = R.id.btnFilter;
-      ImageButton btnFilter = ViewBindings.findChildViewById(rootView, id);
-      if (btnFilter == null) {
+      id = R.id.appBarLayout;
+      AppBarLayout appBarLayout = ViewBindings.findChildViewById(rootView, id);
+      if (appBarLayout == null) {
         break missingId;
       }
 
-      id = R.id.btnLogout;
-      MaterialButton btnLogout = ViewBindings.findChildViewById(rootView, id);
-      if (btnLogout == null) {
-        break missingId;
-      }
-
-      id = R.id.editSearch;
-      EditText editSearch = ViewBindings.findChildViewById(rootView, id);
-      if (editSearch == null) {
-        break missingId;
-      }
-
-      id = R.id.emptyState;
-      LinearLayout emptyState = ViewBindings.findChildViewById(rootView, id);
-      if (emptyState == null) {
-        break missingId;
-      }
-
-      id = R.id.fabAddItem;
-      FloatingActionButton fabAddItem = ViewBindings.findChildViewById(rootView, id);
-      if (fabAddItem == null) {
-        break missingId;
-      }
-
-      id = R.id.recyclerView;
-      RecyclerView recyclerView = ViewBindings.findChildViewById(rootView, id);
-      if (recyclerView == null) {
+      id = R.id.bottom_navigation;
+      BottomNavigationView bottomNavigation = ViewBindings.findChildViewById(rootView, id);
+      if (bottomNavigation == null) {
         break missingId;
       }
 
@@ -139,20 +89,14 @@ public final class ActivityMainBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.tvItemCount;
-      TextView tvItemCount = ViewBindings.findChildViewById(rootView, id);
-      if (tvItemCount == null) {
+      id = R.id.xpBar;
+      ProgressBar xpBar = ViewBindings.findChildViewById(rootView, id);
+      if (xpBar == null) {
         break missingId;
       }
 
-      id = R.id.tvTotalQuantity;
-      TextView tvTotalQuantity = ViewBindings.findChildViewById(rootView, id);
-      if (tvTotalQuantity == null) {
-        break missingId;
-      }
-
-      return new ActivityMainBinding((CoordinatorLayout) rootView, btnFilter, btnLogout, editSearch,
-          emptyState, fabAddItem, recyclerView, toolbar, tvItemCount, tvTotalQuantity);
+      return new ActivityMainBinding((ConstraintLayout) rootView, appBarLayout, bottomNavigation,
+          toolbar, xpBar);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

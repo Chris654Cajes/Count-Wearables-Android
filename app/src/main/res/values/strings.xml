@@ -1,92 +1,92 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Count Wearables</string>
-    <string name="quantity_format">UNITS: %d</string>
-    
+    <string name="app_name">Wardrobe Vault</string>
+    <string name="quantity_format">Qty: %d</string>
+
     <!-- Auth Strings -->
-    <string name="login">INITIALIZE_SESSION</string>
-    <string name="register">REGISTER_NODE</string>
-    <string name="username">OPERATOR_ID</string>
-    <string name="password">SECURE_PHRASE</string>
-    <string name="confirm_password">CONFIRM_SECURE_PHRASE</string>
-    <string name="don_t_have_account">REGISTER_NEW_OPERATOR</string>
-    <string name="already_have_account">EXISTING_OPERATOR_RETURN</string>
-    <string name="sign_up">COMMIT_REGISTRATION</string>
-    <string name="sign_in">ACCESS_TERMINAL</string>
-    <string name="logout">DISCONNECT</string>
-    <string name="forgot_password">RECOVER_CREDENTIALS</string>
-    
+    <string name="login">Enter the Vault</string>
+    <string name="register">Create Profile</string>
+    <string name="username">Adventurer Name</string>
+    <string name="password">Secret Passphrase</string>
+    <string name="confirm_password">Confirm Passphrase</string>
+    <string name="don_t_have_account">Create your adventurer profile</string>
+    <string name="already_have_account">Already an adventurer? Sign in</string>
+    <string name="sign_up">Begin Your Quest</string>
+    <string name="sign_in">Enter the Vault</string>
+    <string name="logout">Log Out</string>
+    <string name="forgot_password">Recover Passphrase</string>
+
     <!-- Home Screen Strings -->
-    <string name="my_wardrobe">WARDROBE_DATABASE</string>
-    <string name="add_item">NEW_RECORD</string>
-    <string name="search">SEARCH_SECTOR</string>
-    <string name="filter">FILTER_CHROMA</string>
-    <string name="no_items">DATABASE_EMPTY</string>
-    <string name="add_first_item">INITIALIZE_FIRST_RECORD</string>
-    
+    <string name="my_wardrobe">Wardrobe Vault</string>
+    <string name="add_item">Add Gear</string>
+    <string name="search">Search Inventory</string>
+    <string name="filter">Filter by Type</string>
+    <string name="no_items">Your Vault Is Empty</string>
+    <string name="add_first_item">Add Your First Piece of Gear</string>
+
     <!-- Clothing Item Strings -->
-    <string name="item_name">IDENTIFIER_NAME</string>
-    <string name="category">SECTOR_CLASSIFICATION</string>
-    <string name="quantity">UNIT_QUANTITY</string>
-    <string name="color">CHROMA_VALUE</string>
-    <string name="size">DIMENSION_SCALE</string>
-    <string name="notes">METADATA_NOTES</string>
-    <string name="description">SPECIFICATIONS</string>
-    <string name="take_photo">ACTIVATE_OPTIC_SENSOR</string>
-    <string name="choose_from_gallery">ACCESS_IMAGE_ARCHIVE</string>
-    <string name="save">COMMIT_CHANGES</string>
-    <string name="cancel">ABORT_OPERATION</string>
-    <string name="delete">PURGE_RECORD</string>
-    <string name="edit">MODIFY_RECORD</string>
-    <string name="date_added">TIMESTAMP_INITIALIZED</string>
-    
+    <string name="item_name">Item Name</string>
+    <string name="category">Gear Slot</string>
+    <string name="quantity">Qty</string>
+    <string name="color">Color</string>
+    <string name="size">Size</string>
+    <string name="notes">Notes</string>
+    <string name="description">Description</string>
+    <string name="take_photo">Take Photo</string>
+    <string name="choose_from_gallery">Choose from Gallery</string>
+    <string name="save">Save</string>
+    <string name="cancel">Cancel</string>
+    <string name="delete">Discard</string>
+    <string name="edit">Modify</string>
+    <string name="date_added">Date Acquired</string>
+
     <!-- Categories -->
-    <string name="all">ALL_SECTORS</string>
-    <string name="topwear">TOP_GEAR</string>
-    <string name="bottomwear">LOWER_GEAR</string>
-    <string name="outerwear">EXTERNAL_SHIELD</string>
-    <string name="dresses">FULL_BODY_SUITS</string>
-    <string name="footwear">STABILIZERS</string>
-    <string name="accessories">SUB_MODULES</string>
-    <string name="sportswear">KINETIC_WEAR</string>
-    <string name="sleepwear">STASIS_GEAR</string>
-    <string name="swimwear">AQUATIC_SUITS</string>
-    <string name="other">UNCATEGORIZED</string>
-    
+    <string name="all">All Gear</string>
+    <string name="topwear">Topwear</string>
+    <string name="bottomwear">Bottomwear</string>
+    <string name="outerwear">Outerwear</string>
+    <string name="dresses">Formal Wear</string>
+    <string name="footwear">Footwear</string>
+    <string name="accessories">Accessories</string>
+    <string name="sportswear">Sportswear</string>
+    <string name="sleepwear">Sleepwear</string>
+    <string name="swimwear">Swimwear</string>
+    <string name="other">Other</string>
+
     <!-- Sizes -->
-    <string name="size_xs">XS-01</string>
-    <string name="size_s">S-02</string>
-    <string name="size_m">M-03</string>
-    <string name="size_l">L-04</string>
-    <string name="size_xl">XL-05</string>
-    <string name="size_xxl">XXL-06</string>
-    <string name="one_size">UNI-SCALE</string>
-    
+    <string name="size_xs">XS</string>
+    <string name="size_s">S</string>
+    <string name="size_m">M</string>
+    <string name="size_l">L</string>
+    <string name="size_xl">XL</string>
+    <string name="size_xxl">XXL</string>
+    <string name="one_size">One Size</string>
+
     <!-- Messages -->
-    <string name="item_saved">DATA_COMMITTED_SUCCESSFULLY</string>
-    <string name="item_deleted">RECORD_PURGED</string>
-    <string name="login_successful">AUTHENTICATION_GRANTED</string>
-    <string name="registration_successful">OPERATOR_REGISTERED</string>
-    <string name="login_failed">AUTHENTICATION_DENIED</string>
-    <string name="registration_failed">REGISTRATION_ERR</string>
-    <string name="invalid_credentials">INVALID_OPERATOR_CREDENTIALS</string>
-    <string name="username_taken">OPERATOR_ID_ALREADY_EXISTS</string>
-    <string name="passwords_mismatch">SECURE_PHRASE_MISMATCH</string>
-    <string name="field_required">REQUIRED_DATA_MISSING</string>
-    <string name="username_short">OPERATOR_ID_LENGTH_INSUFFICIENT</string>
-    <string name="password_short">SECURE_PHRASE_LENGTH_INSUFFICIENT</string>
-    <string name="quantity_must_be_positive">QUANTITY_MUST_EXCEED_ZERO</string>
-    <string name="confirm_delete">CONFIRM_PURGE_OF_RECORD?</string>
-    <string name="delete_confirmation">WARNING: THIS_ACTION_IS_IRREVERSIBLE</string>
-    <string name="yes">CONFIRM</string>
-    <string name="no">ABORT</string>
-    
+    <string name="item_saved">Saved to your inventory!</string>
+    <string name="item_deleted">Item removed from inventory</string>
+    <string name="login_successful">Welcome back, adventurer!</string>
+    <string name="registration_successful">Profile created — welcome to the guild!</string>
+    <string name="login_failed">Authentication failed</string>
+    <string name="registration_failed">Registration error</string>
+    <string name="invalid_credentials">Incorrect name or passphrase</string>
+    <string name="username_taken">That adventurer name is already taken</string>
+    <string name="passwords_mismatch">Passphrases do not match</string>
+    <string name="field_required">This field is required</string>
+    <string name="username_short">Adventurer name is too short</string>
+    <string name="password_short">Passphrase is too short</string>
+    <string name="quantity_must_be_positive">Quantity must be greater than zero</string>
+    <string name="confirm_delete">Discard this item?</string>
+    <string name="delete_confirmation">This action cannot be undone.</string>
+    <string name="yes">Confirm</string>
+    <string name="no">Cancel</string>
+
     <!-- Permission Strings -->
-    <string name="camera_permission_required">OPTIC_SENSOR_ACCESS_REQUIRED</string>
-    <string name="storage_permission_required">ARCHIVE_ACCESS_REQUIRED</string>
-    <string name="permission_denied">ACCESS_DENIED</string>
-    
+    <string name="camera_permission_required">Camera access is required</string>
+    <string name="storage_permission_required">Storage access is required</string>
+    <string name="permission_denied">Permission denied</string>
+
     <!-- Stats -->
-    <string name="total_items">TOTAL_RECORDS</string>
-    <string name="total_quantity">TOTAL_UNITS</string>
+    <string name="total_items">Total Gear</string>
+    <string name="total_quantity">Total Units</string>
 </resources>

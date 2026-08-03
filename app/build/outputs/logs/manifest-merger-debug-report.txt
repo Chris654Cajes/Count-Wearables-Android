@@ -16,6 +16,14 @@ INJECTED from D:\Android Studio Projects\CountWearables\app\src\main\AndroidMani
 INJECTED from D:\Android Studio Projects\CountWearables\app\src\main\AndroidManifest.xml:2:1-72:12
 INJECTED from D:\Android Studio Projects\CountWearables\app\src\main\AndroidManifest.xml:2:1-72:12
 MERGED from [androidx.databinding:viewbinding:8.2.0] D:\.gradle\caches\transforms-3\b84f43d62ca81a8b38dea5fd323d8e45\transformed\jetified-viewbinding-8.2.0\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.navigation:navigation-common:2.7.6] D:\.gradle\caches\transforms-3\262ae6c23a3af364621c3177850012f9\transformed\navigation-common-2.7.6\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.navigation:navigation-common-ktx:2.7.6] D:\.gradle\caches\transforms-3\94ae3459fca4b31ec2e37ea02fbd65a1\transformed\navigation-common-ktx-2.7.6\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.navigation:navigation-runtime:2.7.6] D:\.gradle\caches\transforms-3\d4506cfaa3b24a49b0c3d77d052ece1d\transformed\navigation-runtime-2.7.6\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.navigation:navigation-runtime-ktx:2.7.6] D:\.gradle\caches\transforms-3\1746712c30421d07e523cd7cbfbffc47\transformed\navigation-runtime-ktx-2.7.6\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.navigation:navigation-fragment:2.7.6] D:\.gradle\caches\transforms-3\1dd1fc54797bd8e5805690786906047f\transformed\navigation-fragment-2.7.6\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.navigation:navigation-fragment-ktx:2.7.6] D:\.gradle\caches\transforms-3\bc3d5213706aedbab88e4f57ff128956\transformed\navigation-fragment-ktx-2.7.6\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.navigation:navigation-ui-ktx:2.7.6] D:\.gradle\caches\transforms-3\4586fe3ed75e9c6b9d2aa16b61db39cb\transformed\navigation-ui-ktx-2.7.6\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.navigation:navigation-ui:2.7.6] D:\.gradle\caches\transforms-3\b8f28d34db31bc13404efa6caff3f74f\transformed\navigation-ui-2.7.6\AndroidManifest.xml:17:1-22:12
 MERGED from [com.google.android.material:material:1.11.0] D:\.gradle\caches\transforms-3\184958b59b0b0fbc0694ac3308e227ed\transformed\material-1.11.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] D:\.gradle\caches\transforms-3\415b44dba470347148fe7836a27170ec\transformed\constraintlayout-2.1.4\AndroidManifest.xml:2:1-11:12
 MERGED from [androidx.appcompat:appcompat-resources:1.6.1] D:\.gradle\caches\transforms-3\b40471635c2f8dda8e984f151e403694\transformed\jetified-appcompat-resources-1.6.1\AndroidManifest.xml:17:1-22:12
@@ -211,6 +219,22 @@ INJECTED from D:\Android Studio Projects\CountWearables\app\src\main\AndroidMani
 INJECTED from D:\Android Studio Projects\CountWearables\app\src\main\AndroidManifest.xml
 MERGED from [androidx.databinding:viewbinding:8.2.0] D:\.gradle\caches\transforms-3\b84f43d62ca81a8b38dea5fd323d8e45\transformed\jetified-viewbinding-8.2.0\AndroidManifest.xml:5:5-44
 MERGED from [androidx.databinding:viewbinding:8.2.0] D:\.gradle\caches\transforms-3\b84f43d62ca81a8b38dea5fd323d8e45\transformed\jetified-viewbinding-8.2.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.navigation:navigation-common:2.7.6] D:\.gradle\caches\transforms-3\262ae6c23a3af364621c3177850012f9\transformed\navigation-common-2.7.6\AndroidManifest.xml:20:5-44
+MERGED from [androidx.navigation:navigation-common:2.7.6] D:\.gradle\caches\transforms-3\262ae6c23a3af364621c3177850012f9\transformed\navigation-common-2.7.6\AndroidManifest.xml:20:5-44
+MERGED from [androidx.navigation:navigation-common-ktx:2.7.6] D:\.gradle\caches\transforms-3\94ae3459fca4b31ec2e37ea02fbd65a1\transformed\navigation-common-ktx-2.7.6\AndroidManifest.xml:5:5-44
+MERGED from [androidx.navigation:navigation-common-ktx:2.7.6] D:\.gradle\caches\transforms-3\94ae3459fca4b31ec2e37ea02fbd65a1\transformed\navigation-common-ktx-2.7.6\AndroidManifest.xml:5:5-44
+MERGED from [androidx.navigation:navigation-runtime:2.7.6] D:\.gradle\caches\transforms-3\d4506cfaa3b24a49b0c3d77d052ece1d\transformed\navigation-runtime-2.7.6\AndroidManifest.xml:20:5-44
+MERGED from [androidx.navigation:navigation-runtime:2.7.6] D:\.gradle\caches\transforms-3\d4506cfaa3b24a49b0c3d77d052ece1d\transformed\navigation-runtime-2.7.6\AndroidManifest.xml:20:5-44
+MERGED from [androidx.navigation:navigation-runtime-ktx:2.7.6] D:\.gradle\caches\transforms-3\1746712c30421d07e523cd7cbfbffc47\transformed\navigation-runtime-ktx-2.7.6\AndroidManifest.xml:5:5-44
+MERGED from [androidx.navigation:navigation-runtime-ktx:2.7.6] D:\.gradle\caches\transforms-3\1746712c30421d07e523cd7cbfbffc47\transformed\navigation-runtime-ktx-2.7.6\AndroidManifest.xml:5:5-44
+MERGED from [androidx.navigation:navigation-fragment:2.7.6] D:\.gradle\caches\transforms-3\1dd1fc54797bd8e5805690786906047f\transformed\navigation-fragment-2.7.6\AndroidManifest.xml:20:5-44
+MERGED from [androidx.navigation:navigation-fragment:2.7.6] D:\.gradle\caches\transforms-3\1dd1fc54797bd8e5805690786906047f\transformed\navigation-fragment-2.7.6\AndroidManifest.xml:20:5-44
+MERGED from [androidx.navigation:navigation-fragment-ktx:2.7.6] D:\.gradle\caches\transforms-3\bc3d5213706aedbab88e4f57ff128956\transformed\navigation-fragment-ktx-2.7.6\AndroidManifest.xml:5:5-44
+MERGED from [androidx.navigation:navigation-fragment-ktx:2.7.6] D:\.gradle\caches\transforms-3\bc3d5213706aedbab88e4f57ff128956\transformed\navigation-fragment-ktx-2.7.6\AndroidManifest.xml:5:5-44
+MERGED from [androidx.navigation:navigation-ui-ktx:2.7.6] D:\.gradle\caches\transforms-3\4586fe3ed75e9c6b9d2aa16b61db39cb\transformed\navigation-ui-ktx-2.7.6\AndroidManifest.xml:5:5-44
+MERGED from [androidx.navigation:navigation-ui-ktx:2.7.6] D:\.gradle\caches\transforms-3\4586fe3ed75e9c6b9d2aa16b61db39cb\transformed\navigation-ui-ktx-2.7.6\AndroidManifest.xml:5:5-44
+MERGED from [androidx.navigation:navigation-ui:2.7.6] D:\.gradle\caches\transforms-3\b8f28d34db31bc13404efa6caff3f74f\transformed\navigation-ui-2.7.6\AndroidManifest.xml:20:5-44
+MERGED from [androidx.navigation:navigation-ui:2.7.6] D:\.gradle\caches\transforms-3\b8f28d34db31bc13404efa6caff3f74f\transformed\navigation-ui-2.7.6\AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.material:material:1.11.0] D:\.gradle\caches\transforms-3\184958b59b0b0fbc0694ac3308e227ed\transformed\material-1.11.0\AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.material:material:1.11.0] D:\.gradle\caches\transforms-3\184958b59b0b0fbc0694ac3308e227ed\transformed\material-1.11.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] D:\.gradle\caches\transforms-3\415b44dba470347148fe7836a27170ec\transformed\constraintlayout-2.1.4\AndroidManifest.xml:5:5-7:41

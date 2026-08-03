@@ -1,62 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Cyberpunk Alien Dark Palette -->
-    <!-- Deep Space Backgrounds -->
-    <color name="background">#1A1A2E</color>
-    <color name="surface">#0F0F1A</color>
-    <color name="surface_variant">#1A1A2E</color>
-    <color name="surface_bright">#242444</color>
-    
-    <!-- Neon Primary - Alien Cyan -->
-    <color name="primary">#00F2FF</color>
-    <color name="primary_dark">#008A91</color>
-    <color name="primary_light">#80F9FF</color>
-    <color name="primary_glow">#4D00F2FF</color>
-    
-    <!-- Neon Secondary - Cyber Pink -->
-    <color name="secondary">#FF00E0</color>
-    <color name="secondary_dark">#B3009D</color>
-    <color name="secondary_light">#FF80F0</color>
-    <color name="secondary_glow">#4DFF00E0</color>
-    
-    <!-- Neon Tertiary - Toxic Green -->
-    <color name="tertiary">#0AD114</color>
-    <color name="tertiary_dark">#07910E</color>
+    <!-- ================================================== -->
+    <!-- ARCANE VAULT — RPG Inventory Theme                  -->
+    <!-- ================================================== -->
 
-    <!-- Text Colors - High Contrast Neons & Whites -->
-    <color name="text_primary">#E0E0FF</color>
-    <color name="text_secondary">#94A3B8</color>
-    <color name="text_hint">#475569</color>
-    <color name="text_on_primary">#05050A</color>
+    <!-- Deep Vault Backgrounds -->
+    <color name="background">#0B0A1A</color>
+    <color name="surface">#15142B</color>
+    <color name="surface_variant">#1E1D3D</color>
+    <color name="surface_bright">#2A2850</color>
+
+    <!-- Primary — Enchanted Gold -->
+    <color name="primary">#F0B93D</color>
+    <color name="primary_dark">#B5852A</color>
+    <color name="primary_light">#FFD980</color>
+    <color name="primary_glow">#4DF0B93D</color>
+
+    <!-- Secondary — Arcane Violet -->
+    <color name="secondary">#9B6BF2</color>
+    <color name="secondary_dark">#6C46B8</color>
+    <color name="secondary_light">#C9AEFF</color>
+    <color name="secondary_glow">#4D9B6BF2</color>
+
+    <!-- Tertiary — Mana Teal -->
+    <color name="tertiary">#2FE0C0</color>
+    <color name="tertiary_dark">#1FA487</color>
+
+    <!-- Text -->
+    <color name="text_primary">#F3EFE3</color>
+    <color name="text_secondary">#A79ECB</color>
+    <color name="text_hint">#5C5480</color>
+    <color name="text_on_primary">#241A05</color>
     <color name="text_on_secondary">#FFFFFF</color>
-    <color name="text_neon_cyan">#00F2FF</color>
-    <color name="text_neon_pink">#FF00E0</color>
-    
+    <color name="text_gold_accent">#FFD980</color>
+    <color name="text_violet_accent">#C9AEFF</color>
+
     <!-- Status Colors -->
-    <color name="success">#0AD114</color>
-    <color name="error">#FF3131</color>
-    <color name="warning">#F0F600</color>
-    <color name="info">#00F2FF</color>
-    
+    <color name="success">#4ADE80</color>
+    <color name="error">#F0455C</color>
+    <color name="warning">#FFC93C</color>
+    <color name="info">#38BDF8</color>
+
     <!-- Border & Detail Colors -->
-    <color name="border">#2D2D5A</color>
-    <color name="border_focused">#00F2FF</color>
-    <color name="divider">#1A1A2E</color>
-    
+    <color name="border">#33305E</color>
+    <color name="border_focused">#F0B93D</color>
+    <color name="divider">#232149</color>
+
     <!-- Standard Colors -->
     <color name="white">#FFFFFF</color>
     <color name="black">#000000</color>
     <color name="transparent">#00000000</color>
 
-    <!-- Category Colors (Cyberpunk Edition) -->
-    <color name="category_topwear">#00F2FF</color>
-    <color name="category_bottomwear">#0AD114</color>
-    <color name="category_outerwear">#7000FF</color>
-    <color name="category_dresses">#FF00E0</color>
-    <color name="category_footwear">#F0F600</color>
-    <color name="category_accessories">#00E5FF</color>
-    <color name="category_sportswear">#FF3131</color>
-    <color name="category_sleepwear">#4D00FF</color>
-    <color name="category_swimwear">#00FFC2</color>
-    <color name="category_other">#64748B</color>
+    <!-- Gear-Slot / Rarity Colors (used per category) -->
+    <color name="category_topwear">#38BDF8</color>
+    <color name="category_bottomwear">#4ADE80</color>
+    <color name="category_outerwear">#9B6BF2</color>
+    <color name="category_dresses">#F06BC0</color>
+    <color name="category_footwear">#F0B93D</color>
+    <color name="category_accessories">#2FE0C0</color>
+    <color name="category_sportswear">#F0455C</color>
+    <color name="category_sleepwear">#6C7BFF</color>
+    <color name="category_swimwear">#22D3EE</color>
+    <color name="category_other">#8B87A8</color>
 </resources>

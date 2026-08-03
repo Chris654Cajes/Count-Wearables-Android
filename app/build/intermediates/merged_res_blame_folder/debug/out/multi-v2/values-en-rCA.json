@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.countwearables.app-mergeDebugResources-46:/values-en-rCA/values-en-rCA.xml",
+            "outputFile": "com.countwearables.app-mergeDebugResources-54:/values-en-rCA/values-en-rCA.xml",
             "map": [
                 {
                     "source": "D:\\.gradle\\caches\\transforms-3\\af226701e07b6e5753175ffad1df9a85\\transformed\\appcompat-1.6.1\\res\\values-en-rCA\\values-en-rCA.xml",

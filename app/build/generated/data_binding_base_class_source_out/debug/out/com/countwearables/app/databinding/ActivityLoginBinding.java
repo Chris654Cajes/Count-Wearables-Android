@@ -4,6 +4,7 @@ package com.countwearables.app.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
@@ -22,6 +23,9 @@ import java.lang.String;
 public final class ActivityLoginBinding implements ViewBinding {
   @NonNull
   private final ConstraintLayout rootView;
+
+  @NonNull
+  public final FrameLayout badgeCrest;
 
   @NonNull
   public final MaterialButton btnLogin;
@@ -53,12 +57,14 @@ public final class ActivityLoginBinding implements ViewBinding {
   @NonNull
   public final TextView textSubtitle;
 
-  private ActivityLoginBinding(@NonNull ConstraintLayout rootView, @NonNull MaterialButton btnLogin,
-      @NonNull TextInputEditText editPassword, @NonNull TextInputEditText editUsername,
-      @NonNull ProgressBar progressBar, @NonNull TextView textAppTitle, @NonNull TextView textError,
+  private ActivityLoginBinding(@NonNull ConstraintLayout rootView, @NonNull FrameLayout badgeCrest,
+      @NonNull MaterialButton btnLogin, @NonNull TextInputEditText editPassword,
+      @NonNull TextInputEditText editUsername, @NonNull ProgressBar progressBar,
+      @NonNull TextView textAppTitle, @NonNull TextView textError,
       @NonNull TextInputLayout textInputPassword, @NonNull TextInputLayout textInputUsername,
       @NonNull TextView textRegisterLink, @NonNull TextView textSubtitle) {
     this.rootView = rootView;
+    this.badgeCrest = badgeCrest;
     this.btnLogin = btnLogin;
     this.editPassword = editPassword;
     this.editUsername = editUsername;
@@ -98,6 +104,12 @@ public final class ActivityLoginBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
+      id = R.id.badgeCrest;
+      FrameLayout badgeCrest = ViewBindings.findChildViewById(rootView, id);
+      if (badgeCrest == null) {
+        break missingId;
+      }
+
       id = R.id.btnLogin;
       MaterialButton btnLogin = ViewBindings.findChildViewById(rootView, id);
       if (btnLogin == null) {
@@ -158,9 +170,9 @@ public final class ActivityLoginBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ActivityLoginBinding((ConstraintLayout) rootView, btnLogin, editPassword,
-          editUsername, progressBar, textAppTitle, textError, textInputPassword, textInputUsername,
-          textRegisterLink, textSubtitle);
+      return new ActivityLoginBinding((ConstraintLayout) rootView, badgeCrest, btnLogin,
+          editPassword, editUsername, progressBar, textAppTitle, textError, textInputPassword,
+          textInputUsername, textRegisterLink, textSubtitle);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

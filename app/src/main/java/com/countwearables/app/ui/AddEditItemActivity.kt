@@ -1,6 +1,7 @@
 package com.countwearables.app.ui
 
 import android.Manifest
+import android.app.DatePickerDialog
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
@@ -23,13 +24,10 @@ import com.countwearables.app.ui.viewmodel.AuthViewModel
 import com.countwearables.app.ui.viewmodel.ClothingViewModel
 import java.io.File
 import java.text.SimpleDateFormat
+import java.util.Calendar
 import java.util.Date
 import java.util.Locale
 
-/**
- * Add/Edit Item Activity - Handles creating and editing clothing items.
- * Includes image capture and gallery selection functionality.
- */
 class AddEditItemActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityAddEditItemBinding
@@ -37,54 +35,13 @@ class AddEditItemActivity : AppCompatActivity() {
     private val clothingViewModel: ClothingViewModel by viewModels()
 
     private var currentItem: ClothingItem? = null
-    private var imageUri: Uri? = null
     private var imageFilePath: String = ""
+    private var selectedPurchaseDate: Long? = null
 
-    companion object {
-        const val EXTRA_ITEM_ID = "extra_item_id"
-    }
-
-    // Permission launchers
-    private val cameraPermissionLauncher = registerForActivityResult(
-        ActivityResultContracts.RequestPermission()
-    ) { isGranted ->
-        if (isGranted) {
-            launchCamera()
-        } else {
-            Toast.makeText(this, R.string.camera_permission_required, Toast.LENGTH_SHORT).show()
-        }
-    }
-
-    private val galleryPermissionLauncher = registerForActivityResult(
-        ActivityResultContracts.RequestPermission()
-    ) { isGranted ->
-        if (isGranted) {
-            launchGallery()
-        } else {
-            Toast.makeText(this, R.string.storage_permission_required, Toast.LENGTH_SHORT).show()
-        }
-    }
-
-    private val imageCaptureLauncher = registerForActivityResult(
-        ActivityResultContracts.StartActivityForResult()
-    ) { result ->
+    private val imageCaptureLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
         if (result.resultCode == RESULT_OK) {
-            // Image captured successfully
             if (imageFilePath.isNotEmpty()) {
-                binding.ivItem.setImageURI(Uri.fromFile(File(imageFilePath)))
-            }
-        }
-    }
-
-    private val galleryLauncher = registerForActivityResult(
-        ActivityResultContracts.StartActivityForResult()
-    ) { result ->
-        if (result.resultCode == RESULT_OK) {
-            val uri = result.data?.data
-            uri?.let {
-                imageUri = it
-                // Copy image to app-specific storage
-                saveImageToAppStorage(it)
+                Glide.with(this).load(File(imageFilePath)).into(binding.ivItem)
             }
         }
     }
@@ -94,21 +51,17 @@ class AddEditItemActivity : AppCompatActivity() {
         binding = ActivityAddEditItemBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Setup Toolbar
         setSupportActionBar(binding.toolbar)
         binding.toolbar.setNavigationOnClickListener { finish() }
 
-        // Check if editing or adding new item
         val itemId = intent.getLongExtra(EXTRA_ITEM_ID, -1)
         if (itemId != -1L) {
-            // Edit mode
-            binding.btnDelete.visibility = View.VISIBLE
-            clothingViewModel.getItemById(itemId)
+            clothingViewModel.setItemId(itemId)
         }
 
         setupObservers()
         setupClickListeners()
-        setupAutoCompleteFields()
+        setupDropdowns()
     }
 
     private fun setupObservers() {
@@ -121,218 +74,104 @@ class AddEditItemActivity : AppCompatActivity() {
 
         clothingViewModel.itemResult.observe(this) { result ->
             result.onSuccess {
-                Toast.makeText(this, R.string.item_saved, Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Saved to your inventory!", Toast.LENGTH_SHORT).show()
                 finish()
-            }.onFailure { error ->
-                Toast.makeText(this, error.message, Toast.LENGTH_SHORT).show()
             }
         }
+    }
 
-        clothingViewModel.isLoading.observe(this) { isLoading ->
-            binding.btnSave.isEnabled = !isLoading
-        }
+    private fun setupDropdowns() {
+        val categories = ClothingItem.DEFAULT_CATEGORIES.toTypedArray()
+        binding.editCategory.setAdapter(ArrayAdapter(this, android.R.layout.simple_dropdown_item_1line, categories))
+
+        val sizes = ClothingItem.DEFAULT_SIZES.toTypedArray()
+        binding.editSize.setAdapter(ArrayAdapter(this, android.R.layout.simple_dropdown_item_1line, sizes))
+
+        val seasons = ClothingItem.ALL_SEASONS.toTypedArray()
+        binding.editSeason.setAdapter(ArrayAdapter(this, android.R.layout.simple_dropdown_item_1line, seasons))
     }
 
     private fun setupClickListeners() {
-        binding.btnSave.setOnClickListener {
-            if (validateAndSaveItem()) {
-                // Item saved successfully
-            }
-        }
-
-        binding.btnDelete.setOnClickListener {
-            currentItem?.let { item ->
-                clothingViewModel.deleteItem(item.id, item.userId)
-                finish()
-            }
-        }
-
-        binding.btnTakePhoto.setOnClickListener {
-            checkCameraPermissionAndLaunch()
-        }
+        binding.btnSave.setOnClickListener { validateAndSave() }
+        binding.btnTakePhoto.setOnClickListener { checkCameraPermission() }
+        binding.editPurchaseDate.setOnClickListener { showDatePicker() }
     }
 
-    private fun setupAutoCompleteFields() {
-        // Category dropdown
-        val categories = ClothingItem.DEFAULT_CATEGORIES.toTypedArray()
-        val categoryAdapter = ArrayAdapter(this, android.R.layout.simple_dropdown_item_1line, categories)
-        binding.editCategory.setAdapter(categoryAdapter)
-
-        // Size dropdown
-        val sizes = ClothingItem.DEFAULT_SIZES.toTypedArray()
-        val sizeAdapter = ArrayAdapter(this, android.R.layout.simple_dropdown_item_1line, sizes)
-        binding.editSize.setAdapter(sizeAdapter)
+    private fun showDatePicker() {
+        val cal = Calendar.getInstance()
+        DatePickerDialog(this, { _, year, month, day ->
+            val selectedCal = Calendar.getInstance()
+            selectedCal.set(year, month, day)
+            selectedPurchaseDate = selectedCal.timeInMillis
+            binding.editPurchaseDate.setText(SimpleDateFormat("MMM dd, yyyy", Locale.getDefault()).format(selectedCal.time))
+        }, cal.get(Calendar.YEAR), cal.get(Calendar.MONTH), cal.get(Calendar.DAY_OF_MONTH)).show()
     }
 
     private fun populateFields(item: ClothingItem) {
         binding.editName.setText(item.name)
+        binding.editBrand.setText(item.brand)
         binding.editCategory.setText(item.category, false)
-        binding.editQuantity.setText(item.quantity.toString())
-        binding.editColor.setText(item.color)
         binding.editSize.setText(item.size, false)
+        binding.editColor.setText(item.color)
+        binding.editSeason.setText(item.season, false)
+        binding.editPrice.setText(item.purchasePrice?.toString() ?: "")
         binding.editNotes.setText(item.notes)
+        
+        item.purchaseDate?.let {
+            selectedPurchaseDate = it
+            binding.editPurchaseDate.setText(SimpleDateFormat("MMM dd, yyyy", Locale.getDefault()).format(Date(it)))
+        }
 
-        // Load image if available
-        if (item.imagePath.isNotEmpty()) {
-            val imageFile = File(item.imagePath)
-            if (imageFile.exists()) {
-                Glide.with(this)
-                    .load(imageFile)
-                    .into(binding.ivItem)
-            }
+        imageFilePath = item.imagePath
+        if (imageFilePath.isNotEmpty()) {
+            Glide.with(this).load(File(imageFilePath)).into(binding.ivItem)
         }
     }
 
-    private fun validateAndSaveItem(): Boolean {
+    private fun validateAndSave() {
         val name = binding.editName.text.toString().trim()
         val category = binding.editCategory.text.toString().trim()
-        val quantityStr = binding.editQuantity.text.toString().trim()
-        val color = binding.editColor.text.toString().trim()
-        val size = binding.editSize.text.toString().trim()
-        val notes = binding.editNotes.text.toString().trim()
-
-        // Validate required fields
+        
         if (name.isEmpty()) {
-            binding.textInputName.error = getString(R.string.field_required)
-            return false
+            binding.textInputName.error = "Item name is required"
+            return
         }
-        binding.textInputName.error = null
-
-        if (category.isEmpty()) {
-            binding.textInputCategory.error = getString(R.string.field_required)
-            return false
-        }
-        binding.textInputCategory.error = null
-
-        if (quantityStr.isEmpty()) {
-            binding.textInputQuantity.error = getString(R.string.field_required)
-            return false
-        }
-
-        val quantity = quantityStr.toIntOrNull()
-        if (quantity == null || quantity < 1) {
-            binding.textInputQuantity.error = getString(R.string.quantity_must_be_positive)
-            return false
-        }
-        binding.textInputQuantity.error = null
 
         val userId = authViewModel.getCurrentUserId()
-        if (userId == -1L) {
-            Toast.makeText(this, "User not logged in", Toast.LENGTH_SHORT).show()
-            return false
-        }
-
-        val item = currentItem?.copy(
+        val item = (currentItem ?: ClothingItem(userId = userId)).copy(
             name = name,
+            brand = binding.editBrand.text.toString().trim(),
             category = category,
-            quantity = quantity,
-            color = color,
-            size = size,
-            notes = notes,
+            size = binding.editSize.text.toString().trim(),
+            color = binding.editColor.text.toString().trim(),
+            season = binding.editSeason.text.toString().trim(),
+            purchasePrice = binding.editPrice.text.toString().toDoubleOrNull(),
+            purchaseDate = selectedPurchaseDate,
+            notes = binding.editNotes.text.toString().trim(),
             imagePath = imageFilePath
-        ) ?: ClothingItem(
-            userId = userId,
-            name = name,
-            category = category,
-            quantity = quantity,
-            color = color,
-            size = size,
-            notes = notes,
-            imagePath = imageFilePath,
-            dateAdded = System.currentTimeMillis()
         )
 
-        if (currentItem != null) {
-            // Update existing item
-            clothingViewModel.updateItem(item)
-        } else {
-            // Add new item
-            clothingViewModel.addItem(item)
-        }
-
-        return true
+        if (currentItem == null) clothingViewModel.addItem(item)
+        else clothingViewModel.updateItem(item)
     }
 
-    private fun checkCameraPermissionAndLaunch() {
-        when {
-            ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED -> {
-                launchCamera()
-            }
-            else -> {
-                cameraPermissionLauncher.launch(Manifest.permission.CAMERA)
-            }
-        }
-    }
-
-    private fun checkGalleryPermissionAndLaunch() {
-        val permission = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-            Manifest.permission.READ_MEDIA_IMAGES
+    private fun checkCameraPermission() {
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED) {
+            launchCamera()
         } else {
-            Manifest.permission.READ_EXTERNAL_STORAGE
-        }
-
-        when {
-            ContextCompat.checkSelfPermission(this, permission) == PackageManager.PERMISSION_GRANTED -> {
-                launchGallery()
-            }
-            else -> {
-                galleryPermissionLauncher.launch(permission)
-            }
+            registerForActivityResult(ActivityResultContracts.RequestPermission()) { if (it) launchCamera() }.launch(Manifest.permission.CAMERA)
         }
     }
 
     private fun launchCamera() {
-        val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
-        if (intent.resolveActivity(packageManager) != null) {
-            // Create a file to store the image
-            val photoFile = createImageFile()
-            if (photoFile != null) {
-                imageFilePath = photoFile.absolutePath
-                val photoURI = FileProvider.getUriForFile(
-                    this,
-                    "${packageName}.fileprovider",
-                    photoFile
-                )
-                intent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI)
-                imageCaptureLauncher.launch(intent)
-            }
-        }
+        val photoFile = File(getExternalFilesDir(android.os.Environment.DIRECTORY_PICTURES), "IMG_${System.currentTimeMillis()}.jpg")
+        imageFilePath = photoFile.absolutePath
+        val uri = FileProvider.getUriForFile(this, "${packageName}.fileprovider", photoFile)
+        val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE).apply { putExtra(MediaStore.EXTRA_OUTPUT, uri) }
+        imageCaptureLauncher.launch(intent)
     }
 
-    private fun launchGallery() {
-        val intent = Intent(Intent.ACTION_GET_CONTENT)
-        intent.type = "image/*"
-        galleryLauncher.launch(intent)
-    }
-
-    private fun createImageFile(): File? {
-        return try {
-            val timeStamp = SimpleDateFormat("yyyyMMdd_HHmmss", Locale.getDefault()).format(Date())
-            val storageDir = getExternalFilesDir(android.os.Environment.DIRECTORY_PICTURES)
-            File.createTempFile("JPEG_${timeStamp}_", ".jpg", storageDir)
-        } catch (e: Exception) {
-            e.printStackTrace()
-            null
-        }
-    }
-
-    private fun saveImageToAppStorage(sourceUri: Uri) {
-        try {
-            val storageDir = getExternalFilesDir(android.os.Environment.DIRECTORY_PICTURES)
-            val timeStamp = SimpleDateFormat("yyyyMMdd_HHmmss", Locale.getDefault()).format(Date())
-            val imageFile = File(storageDir, "JPEG_${timeStamp}.jpg")
-
-            contentResolver.openInputStream(sourceUri)?.use { input ->
-                imageFile.outputStream().use { output ->
-                    input.copyTo(output)
-                }
-            }
-
-            imageFilePath = imageFile.absolutePath
-            binding.ivItem.setImageURI(Uri.fromFile(imageFile))
-        } catch (e: Exception) {
-            e.printStackTrace()
-            Toast.makeText(this, "Failed to save image", Toast.LENGTH_SHORT).show()
-        }
+    companion object {
+        const val EXTRA_ITEM_ID = "extra_item_id"
     }
 }

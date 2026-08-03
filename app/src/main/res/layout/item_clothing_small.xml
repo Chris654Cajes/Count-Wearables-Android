@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="96dp"
+    android:layout_height="wrap_content"
+    android:layout_marginEnd="10dp"
+    app:cardCornerRadius="14dp"
+    app:strokeColor="@color/category_other"
+    app:strokeWidth="1.5dp"
+    app:cardBackgroundColor="@color/surface">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/ivItemSmall"
+            android:layout_width="match_parent"
+            android:layout_height="72dp"
+            android:scaleType="centerCrop"
+            android:background="@color/surface_variant"
+            android:padding="10dp"
+            android:src="@drawable/ic_clothing_placeholder"
+            android:contentDescription="@string/item_name" />
+
+        <TextView
+            android:id="@+id/tvItemNameSmall"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="6dp"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:maxLines="1"
+            android:textColor="@color/text_primary"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            tools:text="Blue Vest" />
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>

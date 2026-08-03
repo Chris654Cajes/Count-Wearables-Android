@@ -2,115 +2,110 @@ package com.countwearables.app.data.repository
 
 import android.content.Context
 import com.countwearables.app.data.local.AppDatabase
+import com.countwearables.app.data.local.dao.ClothingItemDao
 import com.countwearables.app.data.model.ClothingItem
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.withContext
 
-/**
- * Repository for clothing item operations.
- * Handles CRUD operations and search/filter functionality.
- */
 class ClothingRepository(context: Context) {
     
     private val database: AppDatabase = AppDatabase.getInstance(context)
+    private val clothingItemDao: ClothingItemDao = database.clothingItemDao()
     
-    /**
-     * Add a new clothing item
-     */
     suspend fun addClothingItem(item: ClothingItem): Result<Long> = withContext(Dispatchers.IO) {
         try {
-            if (item.name.isBlank()) {
-                Result.failure(IllegalArgumentException("Item name cannot be empty"))
-            } else {
-                val id = database.insertClothingItem(item)
-                if (id > 0) Result.success(id) else Result.failure(Exception("Failed to add item"))
-            }
+            val id = clothingItemDao.insert(item)
+            Result.success(id)
         } catch (e: Exception) {
             Result.failure(e)
         }
     }
     
-    /**
-     * Update an existing clothing item
-     */
-    suspend fun updateClothingItem(item: ClothingItem): Result<Long> = withContext(Dispatchers.IO) {
+    suspend fun updateClothingItem(item: ClothingItem): Result<Unit> = withContext(Dispatchers.IO) {
         try {
-            if (item.name.isBlank()) {
-                Result.failure(IllegalArgumentException("Item name cannot be empty"))
-            } else {
-                val rows = database.updateClothingItem(item).toLong()
-                Result.success(rows)
-            }
-        } catch (e: Exception) {
-            Result.failure(e)
-        }
-    }
-    
-    /**
-     * Delete a clothing item
-     */
-    suspend fun deleteClothingItem(itemId: Long): Result<Unit> = withContext(Dispatchers.IO) {
-        try {
-            database.deleteClothingItem(itemId)
+            clothingItemDao.update(item)
             Result.success(Unit)
         } catch (e: Exception) {
             Result.failure(e)
         }
     }
     
-    /**
-     * Get a clothing item by ID
-     */
-    suspend fun getClothingItemById(itemId: Long): ClothingItem? = withContext(Dispatchers.IO) {
-        database.getClothingItemById(itemId)
+    suspend fun deleteClothingItem(item: ClothingItem): Result<Unit> = withContext(Dispatchers.IO) {
+        try {
+            clothingItemDao.delete(item)
+            Result.success(Unit)
+        } catch (e: Exception) {
+            Result.failure(e)
+        }
     }
     
-    /**
-     * Get all clothing items for a user
-     */
-    suspend fun getAllClothingItemsForUser(userId: Long): List<ClothingItem> = withContext(Dispatchers.IO) {
-        database.getAllClothingItemsForUser(userId)
-    }
+    fun getClothingItemById(itemId: Long): Flow<ClothingItem?> = clothingItemDao.getItemById(itemId)
     
-    /**
-     * Search clothing items by name or category
-     */
-    suspend fun searchClothingItems(userId: Long, query: String): List<ClothingItem> = withContext(Dispatchers.IO) {
-        database.searchClothingItems(userId, query)
-    }
+    fun getAllClothingItemsForUser(userId: Long): Flow<List<ClothingItem>> = clothingItemDao.getAllItemsForUser(userId)
+
+    fun getFavorites(userId: Long): Flow<List<ClothingItem>> = clothingItemDao.getFavoritesForUser(userId)
+
+    fun getLaundryQueue(userId: Long): Flow<List<ClothingItem>> = clothingItemDao.getItemsByLaundryStatus(userId, ClothingItem.LAUNDRY_DIRTY)
     
-    /**
-     * Filter clothing items by category
-     */
-    suspend fun filterByCategory(userId: Long, category: String): List<ClothingItem> = withContext(Dispatchers.IO) {
-        database.filterByCategory(userId, category)
+    fun searchAndFilter(
+        userId: Long,
+        nameQuery: String = "",
+        category: String = "",
+        size: String = "",
+        color: String = "",
+        season: String = "",
+        laundryStatus: String = ""
+    ): Flow<List<ClothingItem>> = clothingItemDao.searchAndFilter(userId, nameQuery, category, size, color, season, laundryStatus)
+
+    suspend fun markItemAsWorn(itemId: Long) = withContext(Dispatchers.IO) {
+        val item = clothingItemDao.getItemByIdSuspend(itemId)
+        item?.let {
+            val updated = it.copy(
+                lastWornDate = System.currentTimeMillis(),
+                wearCount = it.wearCount + 1
+            )
+            clothingItemDao.update(updated)
+        }
     }
-    
-    /**
-     * Filter clothing items by size
-     */
-    suspend fun filterBySize(userId: Long, size: String): List<ClothingItem> = withContext(Dispatchers.IO) {
-        database.filterBySize(userId, size)
+
+    suspend fun updateLaundryStatus(itemId: Long, status: String) = withContext(Dispatchers.IO) {
+        val item = clothingItemDao.getItemByIdSuspend(itemId)
+        item?.let {
+            val updated = it.copy(laundryStatus = status)
+            clothingItemDao.update(updated)
+        }
     }
-    
-    /**
-     * Filter clothing items by color
-     */
-    suspend fun filterByColor(userId: Long, color: String): List<ClothingItem> = withContext(Dispatchers.IO) {
-        database.filterByColor(userId, color)
+
+    suspend fun toggleFavorite(itemId: Long) = withContext(Dispatchers.IO) {
+        val item = clothingItemDao.getItemByIdSuspend(itemId)
+        item?.let {
+            val updated = it.copy(isFavorite = !it.isFavorite)
+            clothingItemDao.update(updated)
+        }
     }
+
+    fun getRecentlyAdded(userId: Long, limit: Int = 5) = clothingItemDao.getRecentlyAddedItems(userId, limit)
     
-    /**
-     * Get count of clothing items for a user
-     */
-    suspend fun getClothingItemCountForUser(userId: Long): Int = withContext(Dispatchers.IO) {
-        database.getClothingItemCountForUser(userId)
-    }
+    fun getRecentlyWorn(userId: Long, limit: Int = 5) = clothingItemDao.getRecentlyWornItems(userId, limit)
     
-    /**
-     * Get total quantity of all items for a user
-     */
-    suspend fun getTotalQuantityForUser(userId: Long): Int = withContext(Dispatchers.IO) {
-        database.getTotalQuantityForUser(userId)
+    fun getMostWorn(userId: Long, limit: Int = 5) = clothingItemDao.getMostWornItems(userId, limit)
+
+    fun getItemCount(userId: Long) = clothingItemDao.getItemCountForUser(userId)
+    
+    fun getTotalQuantity(userId: Long) = clothingItemDao.getTotalQuantityForUser(userId)
+
+    fun getCategories(userId: Long) = clothingItemDao.getCategoriesForUser(userId)
+
+    suspend fun findSimilarItems(userId: Long, item: ClothingItem): List<ClothingItem> = withContext(Dispatchers.IO) {
+        val allItems = clothingItemDao.getAllItemsForUser(userId).first()
+        allItems.filter { existing ->
+            existing.id != item.id && (
+                (existing.name.equals(item.name, true) && existing.brand.equals(item.brand, true)) ||
+                (existing.name.equals(item.name, true) && existing.color.equals(item.color, true)) ||
+                (existing.brand.equals(item.brand, true) && existing.category == item.category)
+            )
+        }
     }
 }

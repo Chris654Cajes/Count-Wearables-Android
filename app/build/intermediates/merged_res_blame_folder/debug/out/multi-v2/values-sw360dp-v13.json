@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.countwearables.app-mergeDebugResources-46:/values-sw360dp-v13/values-sw360dp-v13.xml",
+            "outputFile": "com.countwearables.app-mergeDebugResources-54:/values-sw360dp-v13/values-sw360dp-v13.xml",
             "map": [
                 {
                     "source": "D:\\.gradle\\caches\\transforms-3\\b23df7d723247c6cd4aa829370cc8a16\\transformed\\preference-1.2.1\\res\\values-sw360dp-v13\\values-sw360dp-v13.xml",
